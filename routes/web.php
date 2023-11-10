@@ -25,4 +25,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get("users",\App\Livewire\Users\All::class)->name('admin.users');
 });

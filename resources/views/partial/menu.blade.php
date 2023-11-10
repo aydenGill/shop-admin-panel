@@ -68,11 +68,26 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item active">
+        <li class="menu-item {{ request()->route()->getName() == 'dashboard' ? 'active':''}}">
             <a href="{{ route("dashboard") }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Layouts">Users</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ request()->route()->getName() == 'admin.users' ? 'active':''}}">
+                    <a href="{{ route('admin.users') }}" class="menu-link">
+                        <div data-i18n="Without menu">List</div>
+                    </a>
+                </li>
+            </ul>
         </li>
 
     </ul>
