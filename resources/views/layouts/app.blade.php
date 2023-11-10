@@ -98,6 +98,9 @@
 <script src="{{asset("assets/js/dashboards-analytics.js")}}"></script>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
 @livewireScripts
 
 </body>
