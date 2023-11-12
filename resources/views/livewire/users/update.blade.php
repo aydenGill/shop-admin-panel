@@ -1,5 +1,4 @@
-<div>
-    <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+ <div wire:ignore.self class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -48,6 +47,21 @@
                             />
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col mb-0">
+                            <label for="image" class="form-label">Image</label>
+                            <input class="form-control" type="file" id="image" wire:model="image">
+                            @error('image') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+
+                        @if($image)
+                            <img width="200" height="400" class="mt-4" src="{{$image->temporaryUrl()}}"
+                        @endif
+
+                        <div wire:loading wire:target="image" class="text-sm text-gray-500 italic">Uploading...</div>
+
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -59,7 +73,6 @@
             </div>
         </div>
     </div>
-</div>
 <script>
         document.addEventListener('livewire:initialized',()=>{
         @this.on('reset-modal',(event)=>{
