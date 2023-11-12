@@ -1,5 +1,4 @@
 <div>
-    <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Users /</span> List of Users</h4>
 
         <div class="card">
@@ -46,7 +45,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
     <livewire:users.update>
 </div>
@@ -88,10 +86,6 @@
         @this.on('reset-modal',(event)=>{
             console.log("test")
             $('#modalCenter').modal('hide');
-            // setTimeout(() => {
-            //     myModalEl.hide();
-            // @this.dispatch('reset-modal');
-            // }, 5000);
         })
         })
     })
