@@ -23,7 +23,7 @@ class HomeController extends Controller
             foreach ($products as $product) {
                 $product->likes = $this->calculateLikesForProduct($product->id);
                 $product->isLike = $this->isProductLiked($product->id);
-                $product->rate = 3.5;
+                $product->rate = $this->calculateRateForProduct($product->id);
             }
 
 
@@ -56,6 +56,11 @@ class HomeController extends Controller
         return LikeProducts::query()->where('product_id', $productId)
             ->where('user_id', auth()->user()->id)
             ->exists();
+    }
+
+    private function calculateRateForProduct($productId): float
+    {
+        return 3.5;
     }
 
 }
