@@ -18,7 +18,7 @@ class HomeController extends Controller
         try {
             $banners = Banner::query()->select('id','banner')->get();
 
-            $products = Product::query()->select('id','title','description','price')->get();
+            $products = Product::query()->select('id','title','description','price','image')->get();
 
             foreach ($products as $product) {
                 $product->likes = $this->calculateLikesForProduct($product->id);
