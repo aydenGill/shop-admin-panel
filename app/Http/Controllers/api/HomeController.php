@@ -27,7 +27,7 @@ class HomeController extends Controller
             }
 
 
-            $categories = Category::query()->select('id','name','parent')->get();
+            $categories = Category::query()->select('id','name','parent','icon')->get();
 
             return response()->json(['result' => [
                 'banners' => $banners,
