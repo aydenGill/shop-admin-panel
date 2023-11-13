@@ -57,7 +57,8 @@ class Update extends Component
 
     private function storeUploadedFile(): string
     {
-        $randomName = uniqid('image_', true);
+        $extension = $this->image->getClientOriginalExtension();
+        $randomName = uniqid('image_', true) . '.' . $extension;
         return $this->image->storeAs('uploads', $randomName, 'public');
     }
 
