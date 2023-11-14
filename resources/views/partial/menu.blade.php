@@ -90,5 +90,12 @@
             </ul>
         </li>
 
+        <li class="menu-item  {{ request()->route()->getName() == 'admin.categories' ? 'active':''}}">
+            <a href="{{ route('admin.categories') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Categories</div>
+            </a>
+        </li>
+
     </ul>
 </aside>
