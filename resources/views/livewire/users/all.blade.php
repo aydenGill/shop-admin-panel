@@ -84,11 +84,11 @@
 
         document.addEventListener('livewire:initialized',()=>{
         @this.on('reset-modal',(event)=>{
-            console.log("test")
             $('#modalCenter').modal('hide');
         })
         })
     })
 </script>
+
 
 
