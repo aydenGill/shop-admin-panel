@@ -3,6 +3,7 @@
 namespace App\Livewire\Users;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -45,6 +46,7 @@ class Update extends Component
 
         if (!is_null($this->image)) {
             $imageUrl = $this->storeUploadedFile();
+            Log::log('debug','bug is hear 5');
             $data['profile_photo_path'] = $imageUrl;
         }
 
@@ -57,8 +59,11 @@ class Update extends Component
 
     private function storeUploadedFile(): string
     {
+        Log::log('debug','bug is hear 1');
         $extension = $this->image->getClientOriginalExtension();
+        Log::log('debug','bug is hear 2');
         $randomName = uniqid('image_', true) . '.' . $extension;
+        Log::log('debug','bug is hear 3');
         return $this->image->storeAs('uploads', $randomName, 'public');
     }
 
