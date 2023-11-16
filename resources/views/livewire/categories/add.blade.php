@@ -1,4 +1,4 @@
-<div wire:ignore.self class="modal fade OpenAddModals" id="modalCenter" tabindex="-1" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="addCategoriesModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,6 +22,7 @@
                                 placeholder="Enter Name"
                                 wire:model="name"
                             />
+                            @error('name') <span class="error">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="row g-2">
@@ -65,7 +66,7 @@
 <script>
     document.addEventListener('livewire:initialized',()=>{
     @this.on('reset-modal',(event)=>{
-        $('#modalCenter').modal('hide');
+        $('#addCategoriesModal').modal('hide');
     })
     })
 </script>
