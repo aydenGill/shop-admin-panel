@@ -30,7 +30,7 @@ class HomeController extends Controller
             $categories = Category::query()->select('id','name','parent','icon')->get();
 
             foreach($categories as $category){
-                $category->icon =  asset('storage/'.$category->icon);
+                $category->icon = env('APP_URL').'/storage/'.$category->icon;
             }
 
             return response()->json(['result' => [
