@@ -45,18 +45,10 @@ class Update extends Component
         Category::query()->findOrFail($this->id)->update([
                 'name' => $this->name,
                 'parent' => $this->parent ?? 0,
-                'icon' => $this->icon ? $this->storeUploadedFile($this->icon, 'upload') : '',
+                'icon' => $this->icon ? storeUploadedFile($this->icon, 'upload') : '',
         ]);
 
         $this->dispatch('reset-modal');
         $this->dispatch('refresh-categories');
     }
-
-    private function storeUploadedFile($file, $directory): string
-    {
-        $extension = $file->getClientOriginalExtension();
-        $randomName = uniqid('image_', true) . '.' . $extension;
-        return $file->storeAs($directory, $randomName, 'public');
-    }
-
 }

@@ -38,18 +38,11 @@ class Add extends Component
         Category::query()->create([
             'name' => $this->name,
             'parent' => $this->parent ?? 0,
-            'icon' => $this->icon ? $this->storeUploadedFile($this->icon, 'upload') : '',
+            'icon' => $this->icon ? storeUploadedFile($this->icon, 'upload') : '',
         ]);
 
         $this->reset_data();
         $this->dispatch('reset-modal');
         $this->dispatch('refresh-categories');
-    }
-
-    private function storeUploadedFile($file, $directory): string
-    {
-        $extension = $file->getClientOriginalExtension();
-        $randomName = uniqid('image_', true) . '.' . $extension;
-        return $file->storeAs($directory, $randomName, 'public');
     }
 }
