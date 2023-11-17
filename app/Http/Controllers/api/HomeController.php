@@ -36,8 +36,8 @@ class HomeController extends Controller
             return response()->json(['result' => [
                 'banners' => $banners,
                 'categories' => $categories,
-                'flash_sale' => $products,
-                'newest_product' => [
+                'newest_product' => $products,
+                'flash_sale' => [
                     'expired_at' => Carbon::now()->addDays(5),
                     'products' => $products
                 ],
