@@ -4,6 +4,9 @@
 
 This project involves building a robust admin panel for managing an e-commerce platform. It utilizes **Laravel** for the backend structure and **Livewire** for dynamic frontend interactions. The panel comes with a comprehensive **API**, ensuring scalability and flexibility.
 
+## Give a Star! ⭐
+If you like or are using this project to learn or start your solution, please give it a star. Thanks!
+
 ### Features
 
 - **Admin Dashboard:** Manage products, categories, orders, and customers seamlessly.
