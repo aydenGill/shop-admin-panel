@@ -12,3 +12,15 @@ If you like or are using this project to learn or start your solution, please gi
 - **Admin Dashboard:** Manage products, categories, orders, and customers seamlessly.
 - **Laravel & Livewire:** Leverage the power of Laravel's backend with Livewire for reactive UI.
 - **Full API:** Enables external integrations and interactions with the shopping platform.
+
+
+## Table Features
+
+| Features         | Admin panel | API App | API admin |
+| ---------------- | ----------- | ------- | --------- |
+| Dashboard        | 🔜 Coming Soon | ✔️ Yes     | 🔜 Coming Soon |
+| Users            | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
+| Categories       | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
+| Products         | 🔜 Coming Soon |  ✔️ Yes   | -   | 
+| Orders           | -      | -   | - |
+
