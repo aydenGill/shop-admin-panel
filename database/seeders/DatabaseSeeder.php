@@ -15,17 +15,17 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
-            CategoriesSeeder::class,
+            // CategoriesSeeder::class,
             BannerSeeder::class,
-            ProductSeeder::class
+            // ProductSeeder::class
         ]);
 
-       User::factory()->create([
-           "name" => "admin",
-           "email" => "admin@shop.com",
-           "password" => Hash::make("admin_admin"),
-           "is_superuser" => 1,
-           "is_staff" => 0
-       ]);
+    //    User::factory()->create([
+    //        "name" => "admin",
+    //        "email" => "admin@shop.com",
+    //        "password" => Hash::make("admin_admin"),
+    //        "is_superuser" => 1,
+    //        "is_staff" => 0
+    //    ]);
     }
 }

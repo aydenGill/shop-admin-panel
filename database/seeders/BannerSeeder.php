@@ -17,7 +17,9 @@ class BannerSeeder extends Seeder
         Banner::query()->truncate();
 
         $banners = [
-            ['banner' => '', 'alt' => '', 'link' => '', 'expired_at' => Carbon::now(), 'is_enable' => 1]
+            ['banner' => 'https://m.media-amazon.com/images/I/614VOsGXsqL._SX1500_.jpg', 'alt' => 'amazon image', 'link' => 'shop.soheilkhaledabadi.ir', 'expired_at' => Carbon::now(), 'is_enable' => 1],
+            ['banner' => 'https://m.media-amazon.com/images/I/71kFc7PP3PL._SX3000_.jpg', 'alt' => 'amazon image', 'link' => 'shop.soheilkhaledabadi.ir', 'expired_at' => Carbon::now(), 'is_enable' => 1],
+            ['banner' => 'https://m.media-amazon.com/images/I/717Qv6Rdi+L._SX3000_.jpg', 'alt' => 'amazon image', 'link' => 'shop.soheilkhaledabadi.ir', 'expired_at' => Carbon::now(), 'is_enable' => 1]
         ];
 
         foreach ($banners as $banner) {
