@@ -19,8 +19,8 @@ If you like or are using this project to learn or start your solution, please gi
 | Features         | Admin panel | API App | API admin |
 | ---------------- | ----------- | ------- | --------- |
 | Dashboard        | 🔜 Coming Soon | ✔️ Yes     | 🔜 Coming Soon |
-| Users            | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
-| Categories       | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
+| Users            | ✔️ Done      | -   | 🔜 Coming Soon |
+| Categories       | ✔️ Done      | -   | 🔜 Coming Soon |
 | Products         | 🔜 Coming Soon |  ✔️ Yes   | -   | 
 | Orders           | -      | -   | - |
 
