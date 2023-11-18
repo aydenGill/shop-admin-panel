@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -23,8 +24,53 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (NotFoundHttpException $exception, $request) {
+            if ($request->is('api/*')) {
+                return $this->handleApiNotFound($exception);
+            }
         });
+
+        $this->renderable(function (Throwable $exception, $request) {
+            if ($request->is('api/*') && $exception instanceof \Illuminate\Auth\AuthenticationException)
+            {
+                return $this->handleUnauthenticated($exception);
+            }
+        });
+    }
+
+    /**
+     * Handle the API not found exception.
+     *
+     * @param NotFoundHttpException $exception
+     * @return \Illuminate\Http\JsonResponse
+     */
+    private function handleApiNotFound(NotFoundHttpException $exception)
+    {
+        return response()->json([
+            'result' => null,
+            'status' => false,
+            'alert' => [
+                'title' => 'Not Found',
+                'message' => 'Record not found.'
+            ]
+        ], 404);
+    }
+
+    /**
+     * Handle the unauthenticated exception.
+     *
+     * @param Throwable $exception
+     * @return \Illuminate\Http\JsonResponse
+     */
+    private function handleUnauthenticated(Throwable $exception)
+    {
+        return response()->json([
+            'result' => null,
+            'status' => false,
+            'alert' => [
+                'title' => 'Unauthenticated',
+                'message' => 'Unauthenticated.'
+            ]
+        ], 401);
     }
 }
