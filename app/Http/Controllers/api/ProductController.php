@@ -26,8 +26,9 @@ class ProductController extends Controller
             $product->likes = $this->calculateLikesForProduct($product->id);
             $product->isLike = $this->isProductLiked($product->id);
             $product->rate = $this->calculateRateForProduct($product->id);
+            $product->category = Category::query()->select('id','name','parent','icon')->get()[1];
             $product->comments = $this->getComments();
-            $product->category = Category::query()->get()[1]->name;
+
 
         $product->gallery = [
             'https://dkstatics-public.digikala.com/digikala-products/0795518309651e3dda9fde57c607389380138e41_1681912848.jpg',
