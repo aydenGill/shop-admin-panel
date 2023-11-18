@@ -29,10 +29,6 @@ class HomeController extends Controller
 
             $categories = Category::query()->select('id','name','parent','icon')->get();
 
-            foreach($categories as $category){
-                $category->icon = env('APP_URL').'/storage/'.$category->icon;
-            }
-
             return response()->json(['result' => [
                 'banners' => $banners,
                 'categories' => $categories,

@@ -2,7 +2,7 @@
     @foreach($categories as $category)
         <li class="list-group-item">
             <div class="d-flex align-items-center ">
-                <span><img src="{{ asset('storage/'. $category->icon) }}" style="width: 50px;margin-right: 10px"></span>
+                <span><img src="{{ $category->icon }}" style="width: 50px;margin-right: 10px"></span>
                 <h4 style="margin-right: 10px">{{ $category->name }}</h4>
                 <div class="actions ml-5">
                     <button type="button" class="btn btn-outline-danger" wire:click="$dispatch('delete-category',{id : {{$category->id}} })">Delete
