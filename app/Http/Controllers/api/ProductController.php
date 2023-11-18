@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\LikeProducts;
 use App\Models\Product;
 use Carbon\Carbon;
@@ -26,6 +27,7 @@ class ProductController extends Controller
             $product->isLike = $this->isProductLiked($product->id);
             $product->rate = $this->calculateRateForProduct($product->id);
             $product->comments = $this->getComments();
+            $product->category = Category::query()->get()[1]->name;
 
         $product->gallery = [
             'https://dkstatics-public.digikala.com/digikala-products/0795518309651e3dda9fde57c607389380138e41_1681912848.jpg',
