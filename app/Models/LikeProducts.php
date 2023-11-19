@@ -2,15 +2,45 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class LikeProducts extends Model
 {
-    use HasFactory;
+    protected $primaryKey = null;
+    public $incrementing = false;
+    protected $keyType = 'array';
 
     protected $fillable = [
         'user_id',
         'product_id'
     ];
+
+    public $timestamps = false;
+
+    public function getKey()
+    {
+        return [
+            $this->user_id,
+            $this->product_id
+        ];
+    }
+
+    public function setKeysForSaveQuery($query)
+    {
+        foreach ($this->getKeyName() as $key) {
+            $query->where($key, '=', $this->getAttribute($key));
+        }
+
+        return $query;
+    }
+
+    public function getAttribute($key)
+    {
+        return $this->getAttributeFromArray($key) ?? parent::getAttribute($key);
+    }
+
+    public function getKeyName()
+    {
+        return ['user_id', 'product_id']; 
+    }
 }
