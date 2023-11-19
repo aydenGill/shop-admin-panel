@@ -1,10 +1,17 @@
 # Shopping Admin Panel with Laravel & Livewire
 
+## Menu
+
+- [Overview](#overview)
+- [Installation Steps](#installation-steps)
+  - [Laravel Installation](#laravel-installation)
+- [Features](#features)
+- [Table of Features](#table-of-features)
 ## Overview
 
 This project involves creating a robust admin panel to manage an e-commerce platform. It utilizes **Laravel** for the backend structure and **Livewire** for dynamic frontend interactions. The panel also offers a comprehensive **API** for scalability and flexibility.
 
-## Give a Star! ⭐
+## Give a Star ! ⭐
 If you find this project useful or if you're using it to learn or start your solution, please consider giving it a star. Thank you!
 
 ### Installation Steps
