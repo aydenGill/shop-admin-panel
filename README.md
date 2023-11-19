@@ -7,6 +7,7 @@
   - [Laravel Installation](#laravel-installation)
 - [Features](#features)
 - [Table of Features](#table-of-features)
+- [Postman Collection](#postman-collection)
 ## Overview
 
 This project involves creating a robust admin panel to manage an e-commerce platform. It utilizes **Laravel** for the backend structure and **Livewire** for dynamic frontend interactions. The panel also offers a comprehensive **API** for scalability and flexibility.
@@ -58,5 +59,10 @@ If you find this project useful or if you're using it to learn or start your sol
 | Categories       | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
 | Products         | 🔜 Coming Soon |  ✔️ Yes   | -   | 
 | Orders           | -      | -   | - |
+
+
+## Postman Collection
+
+[View Postman Collection](https://documenter.getpostman.com/view/20769678/2s9Ye8fuf5)
 
 Feel free to contribute and improve this project!

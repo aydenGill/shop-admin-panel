@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "3f8c36ba-f70d-4d37-9576-3ad15f042592",
+		"name": "Shoping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20769678",
+		"_collection_link": "https://red-crater-14004.postman.co/workspace/My-Workspace~58a48a92-05da-4e7f-8d0d-32542b898dfc/collection/20769678-3f8c36ba-f70d-4d37-9576-3ad15f042592?action=share&source=collection_link&creator=20769678"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"admin@shop.com\",\n    \"password\" : \"admin_admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}:{{port}}/api/v1/login"
+					},
+					"response": [
+						{
+							"name": "Invalid credentials example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"admin@shop.com\",\n    \"password\" : \"admin_admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}:{{port}}/api/v1/login"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Nov 2023 19:41:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": null,\n    \"status\": false,\n    \"alert\": {\n        \"title\": \"Invalid\",\n        \"message\": \"Invalid credentials\"\n    }\n}"
+						},
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"admin@shop.com\",\n    \"password\" : \"admin_admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}:{{port}}/api/v1/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Nov 2023 19:47:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073\",\n    \"status\": true,\n    \"alert\": {\n        \"title\": \"Login\",\n        \"message\": \"Login successful\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"soheil\",\n    \"email\" : \"soheil@khaledabadi.com\",\n    \"password\" : \"soheil\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}:{{port}}/api/v1/register"
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"soheil\",\n    \"email\" : \"soheil@khaledabadi.com\",\n    \"password\" : \"soheil\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}:{{port}}/api/v1/register"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Nov 2023 19:49:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"2|tGVoQ5Olymn712aaN5L4V6cK8MpHmsS8ywijzc3p37cad85d\",\n    \"status\": true,\n    \"alert\": {\n        \"title\": \"Registration\",\n        \"message\": \"Registration successful\"\n    }\n}"
+						},
+						{
+							"name": "Register with validation error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"\",\n    \"email\" : \"soheil@khaledabadi.com\",\n    \"password\" : \"soheil\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}:{{port}}/api/v1/register"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Nov 2023 19:49:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"name\": [\n            \"The name field is required.\"\n        ],\n        \"email\": [\n            \"The email has already been taken.\"\n        ]\n    },\n    \"status\": false,\n    \"alert\": {\n        \"title\": \"Error\",\n        \"message\": \"validation error , please fill data currently\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"item": [
+				{
+					"name": "home",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}:{{port}}/api/v1/home"
+					},
+					"response": [
+						{
+							"name": "home",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}:{{port}}/api/v1/home"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Nov 2023 19:50:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"banners\": [\n            {\n                \"id\": 1,\n                \"banner\": \"https://m.media-amazon.com/images/I/614VOsGXsqL._SX1500_.jpg\"\n            },\n            {\n                \"id\": 2,\n                \"banner\": \"https://m.media-amazon.com/images/I/71kFc7PP3PL._SX3000_.jpg\"\n            },\n            {\n                \"id\": 3,\n                \"banner\": \"https://m.media-amazon.com/images/I/717Qv6Rdi+L._SX3000_.jpg\"\n            }\n        ],\n        \"categories\": [\n            {\n                \"id\": 1,\n                \"name\": \"Computer\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Electronics\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Arts & Crafts\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Automotive\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Baby\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Beauty and personal care\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Women's Fashion\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Men's Fashion\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"Health and Household\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"Home and Kitchen\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"Industrial and Scientific\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 12,\n                \"name\": \"Luggage\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 13,\n                \"name\": \"Movies & Television\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 14,\n                \"name\": \"Pet supplies\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 15,\n                \"name\": \"Sports and Outdoors\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 16,\n                \"name\": \"Tools & Home Improvement\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 17,\n                \"name\": \"Toys and Games\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            }\n        ],\n        \"newest_product\": [\n            {\n                \"id\": 1,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Shirt model-131\",\n                \"description\": \"Shirt model-131\",\n                \"price\": 13,\n                \"image\": \"https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            }\n        ],\n        \"flash_sale\": {\n            \"expired_at\": \"2023-11-24T19:50:04.774834Z\",\n            \"products\": [\n                {\n                    \"id\": 1,\n                    \"title\": \"Nike model-934\",\n                    \"description\": \"Nike model-934\",\n                    \"price\": 120,\n                    \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                    \"likes\": 0,\n                    \"isLike\": false,\n                    \"rate\": 3.5\n                },\n                {\n                    \"id\": 2,\n                    \"title\": \"Nike model-934\",\n                    \"description\": \"Nike model-934\",\n                    \"price\": 120,\n                    \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                    \"likes\": 0,\n                    \"isLike\": false,\n                    \"rate\": 3.5\n                },\n                {\n                    \"id\": 3,\n                    \"title\": \"Nike model-934\",\n                    \"description\": \"Nike model-934\",\n                    \"price\": 120,\n                    \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                    \"likes\": 0,\n                    \"isLike\": false,\n                    \"rate\": 3.5\n                },\n                {\n                    \"id\": 4,\n                    \"title\": \"Shirt model-131\",\n                    \"description\": \"Shirt model-131\",\n                    \"price\": 13,\n                    \"image\": \"https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp\",\n                    \"likes\": 0,\n                    \"isLike\": false,\n                    \"rate\": 3.5\n                }\n            ]\n        },\n        \"most_sale\": [\n            {\n                \"id\": 1,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Shirt model-131\",\n                \"description\": \"Shirt model-131\",\n                \"price\": 13,\n                \"image\": \"https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            }\n        ]\n    },\n    \"status\": true,\n    \"alert\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "6|b9qyoJ0fgd4uZNvpQLQGu5eM8APxFGrrfBLKUTDl48ff6cbd"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}:{{port}}/api/v1/product"
+					},
+					"response": [
+						{
+							"name": "products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}:{{port}}/api/v1/product"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Nov 2023 19:50:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"title\": \"Nike model-934\",\n            \"slug\": \"nike-model-934\",\n            \"description\": \"Nike model-934\",\n            \"price\": 120,\n            \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n            \"inventory\": 10,\n            \"view_count\": 10,\n            \"created_at\": \"2023-11-19T15:11:46.000000Z\",\n            \"updated_at\": \"2023-11-19T15:11:46.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"user_id\": 1,\n            \"title\": \"Nike model-934\",\n            \"slug\": \"nike-model-934\",\n            \"description\": \"Nike model-934\",\n            \"price\": 120,\n            \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n            \"inventory\": 10,\n            \"view_count\": 10,\n            \"created_at\": \"2023-11-19T15:11:46.000000Z\",\n            \"updated_at\": \"2023-11-19T15:11:46.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"user_id\": 1,\n            \"title\": \"Nike model-934\",\n            \"slug\": \"nike-model-934\",\n            \"description\": \"Nike model-934\",\n            \"price\": 120,\n            \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n            \"inventory\": 10,\n            \"view_count\": 10,\n            \"created_at\": \"2023-11-19T15:11:46.000000Z\",\n            \"updated_at\": \"2023-11-19T15:11:46.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"user_id\": 1,\n            \"title\": \"Shirt model-131\",\n            \"slug\": \"shirt-model-131\",\n            \"description\": \"Shirt model-131\",\n            \"price\": 13,\n            \"image\": \"https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp\",\n            \"inventory\": 10,\n            \"view_count\": 10,\n            \"created_at\": \"2023-11-19T15:11:46.000000Z\",\n            \"updated_at\": \"2023-11-19T15:11:46.000000Z\"\n        }\n    ],\n    \"status\": true,\n    \"alert\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "get products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}:{{port}}/api/v1/product/1"
+					},
+					"response": [
+						{
+							"name": "get products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}:{{port}}/api/v1/product/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Nov 2023 19:51:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"id\": 1,\n        \"title\": \"Nike model-934\",\n        \"description\": \"Nike model-934\",\n        \"price\": 120,\n        \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n        \"likes\": 0,\n        \"isLike\": false,\n        \"rate\": 3.5,\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"Electronics\",\n            \"parent\": 0,\n            \"icon\": \"\"\n        },\n        \"comments\": [\n            {\n                \"user\": {\n                    \"first_name\": \"Soheil\",\n                    \"last_name\": \"Khaledabadi\",\n                    \"image\": \"https://images.unsplash.com/photo-1633332755192-727a05c4013d\"\n                },\n                \"comment\": \"This product is amazing! I love it!\",\n                \"create_at\": \"2023-11-19T19:51:08.385793Z\",\n                \"rate\": 3.5\n            },\n            {\n                \"user\": {\n                    \"first_name\": \"John\",\n                    \"last_name\": \"Doe\",\n                    \"image\": \"https://images.unsplash.com/photo-1633332755192-727a05c4013d\"\n                },\n                \"comment\": \"This product is amazing! I love it!\",\n                \"create_at\": \"2023-11-19T19:51:08.385798Z\",\n                \"rate\": 3.5\n            },\n            {\n                \"user\": {\n                    \"first_name\": \"Alice\",\n                    \"last_name\": \"Smith\",\n                    \"image\": \"https://images.unsplash.com/photo-1633332755192-727a05c4013d\"\n                },\n                \"comment\": \"This product is amazing! I love it!\",\n                \"create_at\": \"2023-11-19T19:51:08.385802Z\",\n                \"rate\": 3.5\n            },\n            {\n                \"user\": {\n                    \"first_name\": \"Michael\",\n                    \"last_name\": \"Johnson\",\n                    \"image\": \"https://images.unsplash.com/photo-1633332755192-727a05c4013d\"\n                },\n                \"comment\": \"This product is amazing! I love it!\",\n                \"create_at\": \"2023-11-19T19:51:08.385804Z\",\n                \"rate\": 3.5\n            },\n            {\n                \"user\": {\n                    \"first_name\": \"Emily\",\n                    \"last_name\": \"Williams\",\n                    \"image\": \"https://images.unsplash.com/photo-1633332755192-727a05c4013d\"\n                },\n                \"comment\": \"This product is amazing! I love it!\",\n                \"create_at\": \"2023-11-19T19:51:08.385807Z\",\n                \"rate\": 3.5\n            }\n        ],\n        \"gallery\": [\n            \"https://dkstatics-public.digikala.com/digikala-products/0795518309651e3dda9fde57c607389380138e41_1681912848.jpg\",\n            \"https://dkstatics-public.digikala.com/digikala-products/db0cc3025e0cc1ce4b66facca2ada2d69a804a03_1681912853.jpg\",\n            \"https://dkstatics-public.digikala.com/digikala-products/391e9ce961e2a603642be1cf1ce2a3c6c08cd43c_1681912851.jpg\"\n        ]\n    },\n    \"status\": true,\n    \"alert\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "like product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}:{{port}}/api/v1/product/1/like"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073",
+			"type": "string"
+		}
+	]
+}
