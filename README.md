@@ -63,6 +63,6 @@ If you find this project useful or if you're using it to learn or start your sol
 
 ## Postman Collection
 
-[View Postman Collection](https://documenter.getpostman.com/view/20769678/2s9Ye8fuf5)
+[View Postman Collection](https://documenter.getpostman.com/view/20769678/2s9Ye8fuf5) also you cat downaload json config file [Download](https://github.com/soheilkhaledabdi/shop/blob/main/assets/Shoping.postman_collection.json)
 
 Feel free to contribute and improve this project!
