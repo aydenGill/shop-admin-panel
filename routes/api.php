@@ -14,6 +14,7 @@ Route::prefix('v1')->group(function (){
 
 Route::prefix('v1')->middleware('auth:sanctum')->group(function (){
    Route::get('home' , [HomeController::class , 'index']);
-   Route::resource('product',ProductController::class)->only(['index','show']);
+   Route::get('product/watch_list', [ProductController::class, 'watch_list'])->name('product.watch_list');
+   Route::resource('product',ProductController::class)->except(['store','update','delete','edit']);
    Route::get('product/{product}/like', [LikeController::class, 'likeProduct']);
 });
