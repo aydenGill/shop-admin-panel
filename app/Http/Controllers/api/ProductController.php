@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Product as ResourcesProduct;
+use App\Http\Resources\ProductCollection;
 use App\Models\Category;
 use App\Models\LikeProducts;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -41,6 +42,16 @@ class ProductController extends Controller
             'status' => true,
             'alert' => null
         ]);
+    }
+
+    public function watch_list(){
+        $products = auth()->user()->likedProducts()->with('product')->get();
+        $categories = Category::query()->select('id','name','parent','icon')->get();
+        
+        return response()->json(['result' => [
+            'categories' => $categories,
+            'products' => new ProductCollection($products)
+        ], 'status' => true,'alert' => null ]);
     }
 
     private function getComments(): array
@@ -100,6 +111,8 @@ class ProductController extends Controller
 
         return $comments;
     }
+
+
     private function calculateLikesForProduct($productId): int
     {
         return LikeProducts::query()->where('product_id', $productId)->count();
