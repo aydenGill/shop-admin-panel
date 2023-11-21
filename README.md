@@ -3,8 +3,10 @@
 ## Menu
 
 - [Overview](#overview)
+- [Application](#application-📱)
+- [Tech Stack](#tech-stack-📚)
 - [Installation Steps](#installation-steps)
-  - [Laravel Installation](#laravel-installation)
+- [Laravel Installation](#laravel-installation)
 - [Features](#features)
 - [Table of Features](#table-of-features)
 - [Postman Collection](#postman-collection)
@@ -14,6 +16,20 @@ This project involves creating a robust admin panel to manage an e-commerce plat
 
 ## Give a Star ! ⭐
 If you find this project useful or if you're using it to learn or start your solution, please consider giving it a star. Thank you!
+
+## Application 📱
+[This](https://github.com/razaghimahdi/Shoping-By-KMP) is a cross-platform application that is built using Jetpack Compose Multiplatform, a declarative framework for sharing UIs across multiple platforms with Kotlin. The application allows users to browse, search, and purchase products from a shopping catalog on Android, iOS.
+
+### Tech Stack 📚
+- Kotlin Multiplatform
+- Kotlin Coroutines
+- Compose Multiplatform
+- Material3
+- Ktor
+- Datastore
+- Precompose
+- Koin
+
 
 ### Installation Steps
 
@@ -66,18 +82,3 @@ If you find this project useful or if you're using it to learn or start your sol
 [View Postman Collection](https://documenter.getpostman.com/view/20769678/2s9Ye8fuf5) also you cat downaload json config file [Download](https://github.com/soheilkhaledabdi/shop/blob/main/assets/Shoping.postman_collection.json)
 
 Feel free to contribute and improve this project!
-
-## Application 📱
-[This](https://github.com/razaghimahdi/Shoping-By-KMP) is a cross-platform application that is built using Jetpack Compose Multiplatform, a declarative framework for sharing UIs across multiple platforms with Kotlin. The application allows users to browse, search, and purchase products from a shopping catalog on Android, iOS.
-
-### Tech Stack 📚
-- Kotlin Multiplatform
-- Kotlin Coroutines
-- Compose Multiplatform
-- Material3
-- Ktor
-- Datastore
-- Precompose
-- Koin
-
-
