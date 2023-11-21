@@ -11,6 +11,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -62,5 +63,10 @@ class User extends Authenticatable
     public function password():Attribute
     {
         return Attribute::set(fn($value)=>Hash::make($value));
+    }
+
+    public function likedProducts() : HasMany
+    {
+        return $this->hasMany(LikeProducts::class, 'user_id');
     }
 }
