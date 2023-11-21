@@ -371,7 +371,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "6|b9qyoJ0fgd4uZNvpQLQGu5eM8APxFGrrfBLKUTDl48ff6cbd"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -505,14 +505,133 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}:{{port}}/api/v1/product/1/like"
+						"url": "{{host}}:{{port}}/api/v1/product/2/like"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "like product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}:{{port}}/api/v1/product/1/like"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 20:00:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": null,\n    \"status\": true,\n    \"alert\": {\n        \"title\": \"Success\",\n        \"message\": \"Product liked successfully\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "watch list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}:{{port}}/api/v1/product/watch_list"
+					},
+					"response": [
+						{
+							"name": "watch list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}:{{port}}/api/v1/product/watch_list"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.25"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 20:01:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "52"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": [\n        {\n            \"product_id\": 1,\n            \"user_id\": 1,\n            \"product\": {\n                \"id\": 1,\n                \"user_id\": 1,\n                \"title\": \"Nike model-934\",\n                \"slug\": \"nike-model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"inventory\": 10,\n                \"view_count\": 10,\n                \"created_at\": \"2023-11-19T15:11:46.000000Z\",\n                \"updated_at\": \"2023-11-19T15:11:46.000000Z\"\n            }\n        }\n    ],\n    \"status\": true,\n    \"alert\": null\n}"
+						}
+					]
 				}
 			]
 		}
