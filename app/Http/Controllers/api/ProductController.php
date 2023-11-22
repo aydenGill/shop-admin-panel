@@ -44,7 +44,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function watch_list(){
+    public function wishlist(){
         $products = auth()->user()->likedProducts()->with('product')->get();
         $categories = Category::query()->select('id','name','parent','icon')->get();
         
