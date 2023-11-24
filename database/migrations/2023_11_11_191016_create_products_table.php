@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('description');
             $table->integer('price');
 
+            $table->foreignId('category_id')->nullable();
+
             $table->string('image')->nullable();
 
             $table->integer('inventory')->default(0);
