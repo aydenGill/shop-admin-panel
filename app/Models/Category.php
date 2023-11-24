@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\Hash;
 
 class Category extends Model
 {
@@ -32,5 +30,11 @@ class Category extends Model
         }
         return $value;
     }
+
+    // You can use this code for many-to-many relation
+//    public function products()
+//    {
+//        return $this->belongsToMany(Product::class ,'category_products');
+//    }
 
 }
