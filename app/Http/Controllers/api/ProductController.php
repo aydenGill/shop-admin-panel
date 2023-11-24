@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Product as ResourcesProduct;
 use App\Http\Resources\ProductCollection;
 use App\Models\Category;
 use App\Models\LikeProducts;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;use Illuminate\Pagination\Paginator;
+
 
 class ProductController extends Controller
 {
@@ -22,20 +23,24 @@ class ProductController extends Controller
 
     public function show(Product $product): JsonResponse
     {
-        $product = Product::query()->select('id','title','description','price','image')->findOrFail($product->id);
+        $product = $product
+            ->select('id', 'title', 'description', 'price', 'image', 'category_id')
+            ->with('category:id,name,parent,icon')
+            ->first();
 
-            $product->likes = $this->calculateLikesForProduct($product->id);
-            $product->isLike = $this->isProductLiked($product->id);
-            $product->rate = $this->calculateRateForProduct($product->id);
-            $product->category = Category::query()->select('id','name','parent','icon')->get()[1];
-            $product->comments = $this->getComments();
+        $product->likes = $this->calculateLikesForProduct($product->id);
+        $product->isLike = $this->isProductLiked($product->id);
+        $product->rate = $this->calculateRateForProduct($product->id);
+        $product->category = $product->category;
+        $product->comments = $this->getComments();
 
-
-        $product->gallery = [
+        $galleryImages = [
             'https://dkstatics-public.digikala.com/digikala-products/0795518309651e3dda9fde57c607389380138e41_1681912848.jpg',
             'https://dkstatics-public.digikala.com/digikala-products/db0cc3025e0cc1ce4b66facca2ada2d69a804a03_1681912853.jpg',
             'https://dkstatics-public.digikala.com/digikala-products/391e9ce961e2a603642be1cf1ce2a3c6c08cd43c_1681912851.jpg'
         ];
+
+        $product->gallery = $galleryImages;
 
         return response()->json([
             'result' => $product,
@@ -44,14 +49,44 @@ class ProductController extends Controller
         ]);
     }
 
-    public function wishlist(){
-        $products = auth()->user()->likedProducts()->with('product')->get();
+    public function wishlist(Request $request): JsonResponse
+    {
+        $productsQuery = auth()->user()->likedProducts()->with('product');
+
+        if ($request->has('category_id')) {
+            $productsQuery->whereHas('product', function ($query) use ($request) {
+                $query->where('category_id', $request->input('category_id'));
+            });
+        }
+
+        $perPage = $request->has('per_page') ? (int)$request->input('per_page') : 15;
+        $currentPage = $request->has('page') ? (int)$request->input('page') : 1;
+
+        Paginator::currentPageResolver(function () use ($currentPage) {
+            return $currentPage;
+        });
+
+        $products = $productsQuery->paginate($perPage);
+
         $categories = Category::query()->select('id','name','parent','icon')->get();
-        
-        return response()->json(['result' => [
-            'categories' => $categories,
-            'products' => new ProductCollection($products)
-        ], 'status' => true,'alert' => null ]);
+
+        return response()->json([
+            'result' => [
+                'categories' => $categories,
+                'products' => [
+                    'pagination' => [
+                        'pageNumber' => $products->currentPage(),
+                        'totalRows' => $products->total(),
+                        'totalPages' => $products->lastPage(),
+                        'hasPreviousPage' => $products->previousPageUrl() !== null,
+                        'hasNextPage' => $products->nextPageUrl() !== null,
+                    ],
+                    'items' => new ProductCollection($products)
+                ]
+            ],
+            'status' => true,
+            'alert' => null
+        ]);
     }
 
     private function getComments(): array
