@@ -73,16 +73,14 @@ class ProductController extends Controller
         return response()->json([
             'result' => [
                 'categories' => $categories,
-                'products' => [
-                    'pagination' => [
-                        'pageNumber' => $products->currentPage(),
-                        'totalRows' => $products->total(),
-                        'totalPages' => $products->lastPage(),
-                        'hasPreviousPage' => $products->previousPageUrl() !== null,
-                        'hasNextPage' => $products->nextPageUrl() !== null,
-                    ],
-                    'items' => new ProductCollection($products)
-                ]
+                'products' => new ProductCollection($products),
+                'pagination' => [
+                    'pageNumber' => $products->currentPage(),
+                    'totalRows' => $products->total(),
+                    'totalPages' => $products->lastPage(),
+                    'hasPreviousPage' => $products->previousPageUrl() !== null,
+                    'hasNextPage' => $products->nextPageUrl() !== null,
+                ],
             ],
             'status' => true,
             'alert' => null
