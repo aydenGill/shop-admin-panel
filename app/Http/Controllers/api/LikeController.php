@@ -5,9 +5,11 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\LikeProducts;
 use App\Models\Product;
+use App\Traits\BaseApiResponse;
 
 class LikeController extends Controller
 {
+    use BaseApiResponse;
     public function likeProduct(Product $product)
     {
         $userId = auth()->id();
@@ -18,29 +20,13 @@ class LikeController extends Controller
 
         if ($existingLike) {
             $existingLike->delete();
-
-            return response()->json([
-                'result' => null,
-                'status' => true,
-                'alert' => [
-                    'title' => 'Success',
-                    'message' => 'Product unliked successfully'
-                ]
-            ]);
+            return $this->success(null,'Success','Product unliked successfully');
         }
 
         LikeProducts::create([
             'product_id' => $product->id,
             'user_id' => $userId,
         ]);
-
-        return response()->json([
-            'result' => null,
-            'status' => true,
-            'alert' => [
-                'title' => 'Success',
-                'message' => 'Product liked successfully'
-            ]
-        ]);
+        return $this->success(null,'Success','Product liked successfully');
     }
 }

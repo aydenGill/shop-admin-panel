@@ -7,12 +7,14 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\LikeProducts;
 use App\Models\Product;
+use App\Traits\BaseApiResponse;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use MongoDB\Driver\Exception\EncryptionException;
 
 class HomeController extends Controller
 {
+    use BaseApiResponse;
     public function index(): JsonResponse
     {
         try {
@@ -29,7 +31,7 @@ class HomeController extends Controller
 
             $categories = Category::query()->select('id','name','parent','icon')->get();
 
-            return response()->json(['result' => [
+            return $this->success([
                 'banners' => $banners,
                 'categories' => $categories,
                 'newest_product' => $products,
@@ -38,10 +40,10 @@ class HomeController extends Controller
                     'products' => $products
                 ],
                 'most_sale' => $products
-            ] , 'status' => true,'alert' => null ]);
+            ]);
 
         }catch (EncryptionException $exception){
-            return response()->json(['result' => $exception->getMessage() , 'status' => false ,'alert' => ['title' => 'Error' , 'message' => 'Error form server']], 500);
+            return $this->failed($exception->getMessage(),'Error','Error from server');
         }
     }
 

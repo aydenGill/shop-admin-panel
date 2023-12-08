@@ -6,24 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BasketDeleteRequest;
 use App\Http\Requests\BasketRequest;
 use App\Models\Basket;
+use App\Traits\BaseApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class BasketController extends Controller
 {
+    use BaseApiResponse;
     public function index(): JsonResponse
     {
         $baskets = Basket::query()->where('user_id', auth()->user()->id)->with('Product')->get();
-
-        return response()->json([
-            'result' => $baskets,
-            'status' => true,
-            'alert' => [
-                'title' => 'success',
-                'message' => 'Product successfully.'
-            ]
-        ]);
-
+        return $this->success($baskets,'success','Product successfully.');
     }
 
     public function add(BasketRequest $request): JsonResponse
@@ -45,14 +38,7 @@ class BasketController extends Controller
             ]);
         }
 
-        return response()->json([
-            'result' => null,
-            'status' => true,
-            'alert' => [
-                'title' => 'success',
-                'message' => 'Product added to the basket successfully.'
-            ]
-        ]);
+        return $this->success(null,'success','Product added to the basket successfully.');
     }
 
 
@@ -60,29 +46,13 @@ class BasketController extends Controller
     {
         $basketItem = Basket::query()->where('id', $request->product)
             ->where('user_id', auth()->user()->id)
-            ->first();
+                ->first();
 
         if ($basketItem) {
             $basketItem->delete();
-
-            return response()->json([
-                'result' => null,
-                'status' => true,
-                'alert' => [
-                    'title' => 'success',
-                    'message' => 'Item removed from the basket.'
-                ]
-            ]);
+            return $this->success(null,'success','Item removed from the basket.');
         }
 
-        return response()->json([
-            'result' => null,
-            'status' => true,
-            'alert' => [
-                'title' => 'success',
-                'message' => 'Basket item not found or you do not have permission to delete it.'
-            ]
-        ]);
-
+        return $this->success(null,'success','Basket item not found or you do not have permission to delete it.');
     }
 }

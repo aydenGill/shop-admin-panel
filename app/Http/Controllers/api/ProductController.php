@@ -7,6 +7,7 @@ use App\Http\Resources\ProductCollection;
 use App\Models\Category;
 use App\Models\LikeProducts;
 use App\Models\Product;
+use App\Traits\BaseApiResponse;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;use Illuminate\Pagination\Paginator;
@@ -14,11 +15,11 @@ use Illuminate\Http\Request;use Illuminate\Pagination\Paginator;
 
 class ProductController extends Controller
 {
-
+    use BaseApiResponse;
     public function index(): JsonResponse
     {
         $products = Product::all();
-        return response()->json(['result' => $products, 'status' => true,'alert' => null ]);
+        return $this->success($products);
     }
 
     public function show(Product $product): JsonResponse
@@ -42,11 +43,7 @@ class ProductController extends Controller
 
         $product->gallery = $galleryImages;
 
-        return response()->json([
-            'result' => $product,
-            'status' => true,
-            'alert' => null
-        ]);
+        return $this->success($product);
     }
 
     public function wishlist(Request $request): JsonResponse
@@ -70,21 +67,19 @@ class ProductController extends Controller
 
         $categories = Category::query()->select('id','name','parent','icon')->get();
 
-        return response()->json([
-            'result' => [
-                'categories' => $categories,
-                'products' => new ProductCollection($products),
-                'pagination' => [
-                    'page_number' => $products->currentPage(),
-                    'total_rows' => $products->total(),
-                    'total_pages' => $products->lastPage(),
-                    'has_previous_page' => $products->previousPageUrl() !== null,
-                    'has_next_page' => $products->nextPageUrl() !== null,
-                ],
-            ],
-            'status' => true,
-            'alert' => null
-        ]);
+        $data = [
+            'categories' => $categories,
+            'products' => new ProductCollection($products),
+            'pagination' => [
+                'page_number' => $products->currentPage(),
+                'total_rows' => $products->total(),
+                'total_pages' => $products->lastPage(),
+                'has_previous_page' => $products->previousPageUrl() !== null,
+                'has_next_page' => $products->nextPageUrl() !== null,
+            ]
+        ];
+
+        return $this->success($data);
     }
 
     private function getComments(): array
