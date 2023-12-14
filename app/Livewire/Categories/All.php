@@ -30,7 +30,7 @@ class All extends Component
 
     private function loadCategories(): void
     {
-        $this->categories = Category::all();
+        $this->categories = Category::query()->select('id','name','parent','icon')->get();
     }
 
     #[On('goOn-Delete')]
