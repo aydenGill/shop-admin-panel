@@ -75,6 +75,7 @@ If you find this project useful or if you're using it to learn or start your sol
 | Categories       | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
 | Products         | 🔜 Coming Soon |  ✔️ Yes   | -   | 
 | Orders           | -      | -   | - |
+| Profile          | _      | ✔️ Done | -
 
 
 ## Postman Collection
