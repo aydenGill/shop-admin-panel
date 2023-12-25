@@ -1,4 +1,4 @@
-# Shopping Admin Panel with Laravel & Livewire
+# Shopping Admin Panel with Laravel & Livewire with API
 
 ## Menu
 
