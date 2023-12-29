@@ -8,9 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@100&family=Roboto+Mono:wght@100&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@100&family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -153,7 +151,6 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#links">Links</a></li>
-                <!-- <li><a href="/articles">Articles</a></li> -->
             </ul>
         </nav>
     </header>
@@ -220,7 +217,7 @@
         <ul>
             <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
             <li><a href="https://github.com/soheilkhaledabdi/">GitHub</a></li>
-            <li><a href = "mailto: soheilkhaledabdi@gmail.com">Send Email</a></li>
+            <li><a href="mailto: soheilkhaledabdi@gmail.com">Send Email</a></li>
         </ul>
     </section>
 
