@@ -182,10 +182,12 @@
     <section id="experience" class="content-section">
         <h1>Experience</h1>
         <div class="experience-item">
-            <h2>Backend Developer at Aserz</h2>
+            <h2>Backend Developer at Asrez</h2>
             <p>
-                I've been with asrez for 1 year and continue to focus on back-end development, working on various
-                exciting projects.
+                I have been working with Asrez for a year, dedicated to back-end development and contributing to several exciting projects.
+            </p>
+            <p>
+                You can visit the Asrez website <a href="https://asrez.com" target="_blank" rel="noopener noreferrer">here</a>.
             </p>
         </div>
 
