@@ -11,7 +11,6 @@
         "laravel/jetstream": "^4.0",
         "laravel/pulse": "^1.0@beta",
         "laravel/sanctum": "^3.3",
-        "laravel/telescope": "^4.17",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "spatie/laravel-permission": "^6.1"
