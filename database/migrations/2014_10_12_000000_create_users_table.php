@@ -18,11 +18,10 @@ return new class extends Migration
             $table->string('mobile')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
             $table->boolean("is_superuser")->default(0);
             $table->boolean("is_staff")->default(0);
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
