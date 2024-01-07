@@ -10,6 +10,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+    'admin'
 ])->group(function () {
     Route::view('/dashboard','dashboard')->name('dashboard');
     Route::get('users',AllUsers::class)->name('admin.users');
