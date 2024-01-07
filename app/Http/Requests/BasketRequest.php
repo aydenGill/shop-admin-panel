@@ -31,7 +31,7 @@ class BasketRequest extends FormRequest
     public function failedValidation(Validator|\Illuminate\Contracts\Validation\Validator $validator)
     {
         throw new HttpResponseException(response()->json([
-            'result' => $validator->errors(),
+            'result' => null,
             'status'   => false,
             'alert'   => [
                 'title' => 'Error',
