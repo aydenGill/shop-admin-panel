@@ -19,7 +19,7 @@ class AuthController extends Controller
             $user = User::query()->select('id','email','password')->where('email', $request->input('email'))->first();
 
             if (!$user || !Hash::check($request->input('password'), $user->password)) {
-                return $this->success(null,'Invalid','Invalid credentials',401);
+                return $this->failed(null,'Invalid','Invalid credentials',401);
             }
 
             $token = $user->createToken('token_base_name')->plainTextToken;
