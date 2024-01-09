@@ -71,6 +71,7 @@ If you find this project useful or if you're using it to learn or start your sol
 | Features         | Admin panel | API App | API admin |
 | ---------------- | ----------- | ------- | --------- |
 | Dashboard        | 🔜 Coming Soon | ✔️ Yes     | 🔜 Coming Soon |
+| Search        | 🔜 Coming Soon | ✔️ Done     | 🔜 Coming Soon |
 | Users            | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
 | Categories       | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
 | Products         | 🔜 Coming Soon |  ✔️ Yes   | -   | 
