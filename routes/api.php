@@ -17,11 +17,20 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function (){
 
    Route::get('profile',[ProfileController::class,'index'])->name('api.home');
    Route::get('home' , [HomeController::class , 'index'])->name('api.home');
-   Route::get('product/wishlist', [ProductController::class, 'wishlist'])->name('api.product.wishlist');
-   Route::resource('product',ProductController::class)->except(['store','update','delete','edit']);
-   Route::get('product/{product}/like', [LikeController::class, 'likeProduct'])->name('api.product.like');
 
-   Route::get('basket',[BasketController::class,'index'])->name('api.basket');
-    Route::post('basket/add',[BasketController::class,'add'])->name('api.basket.add');
-    Route::post('basket/delete',[BasketController::class,'delete'])->name('api.basket.delete');
+   Route::prefix('search')->group(function (){
+       Route::get('filter',[HomeController::class,'filter'])->name('api.search.data');
+       Route::get('',[HomeController::class,'search'])->name('api.search.data');
+   });
+
+    Route::get('product/wishlist', [ProductController::class, 'wishlist'])->name('api.product.wishlist');
+    Route::resource('product',ProductController::class)->except(['store','update','delete','edit']);
+    Route::get('product/{product}/like', [LikeController::class, 'likeProduct'])->name('api.product.like');
+
+
+    Route::prefix('basket')->group(function (){
+        Route::get('',[BasketController::class,'index'])->name('api.basket');
+        Route::post('add',[BasketController::class,'add'])->name('api.basket.add');
+        Route::post('delete',[BasketController::class,'delete'])->name('api.basket.delete');
+    });
 });

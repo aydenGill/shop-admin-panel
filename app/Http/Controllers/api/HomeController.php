@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchRequest;
+use App\Http\Resources\ProductCollection;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\LikeProducts;
@@ -10,6 +12,7 @@ use App\Models\Product;
 use App\Traits\BaseApiResponse;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Pagination\Paginator;
 use MongoDB\Driver\Exception\EncryptionException;
 
 class HomeController extends Controller
@@ -45,6 +48,62 @@ class HomeController extends Controller
         }catch (EncryptionException $exception){
             return $this->failed($exception->getMessage(),'Error','Error from server');
         }
+    }
+
+    public function filter(): JsonResponse
+    {
+        try {
+            $get_min_price = Product::query()->min('price');
+            $get_max_price = Product::query()->max('price');
+            $categories = Category::query()->select('id','name','parent','icon')->get();
+
+            return $this->success([
+                'min_price' => $get_min_price,
+                'max_price' => $get_max_price,
+                'categories' => $categories
+            ]);
+        }catch (\Exception $exception){
+            return $this->failed($exception->getMessage(),'Error','Error from server');
+        }
+    }
+
+    public function search(SearchRequest $request): JsonResponse
+    {
+        $validatedData = $request->validated();
+
+        $productsQuery = Product::query();
+
+        if ($request->has('categories_id')) {
+            $productsQuery->whereIn('category_id', $validatedData['categories_id']);
+        }
+
+        if ($request->has('min_price')) {
+            $productsQuery->where('price', '>=', $validatedData['min_price']);
+        }
+
+        if ($request->has('max_price')) {
+            $productsQuery->where('price', '<=', $validatedData['max_price']);
+        }
+
+        $perPage = $request->input('per_page', 15);
+        $currentPage = $request->input('page', 1);
+
+        Paginator::currentPageResolver(fn () => $currentPage);
+
+        $products = $productsQuery->paginate((int)$perPage);
+
+        $paginationData = [
+            'page_number' => $products->currentPage(),
+            'total_rows' => $products->total(),
+            'total_pages' => $products->lastPage(),
+            'has_previous_page' => $products->previousPageUrl() !== null,
+            'has_next_page' => $products->nextPageUrl() !== null,
+        ];
+
+        return $this->success([
+            'products' => new ProductCollection($products),
+            'pagination' => $paginationData,
+        ]);
     }
 
 

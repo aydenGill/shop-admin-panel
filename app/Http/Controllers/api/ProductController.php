@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductCollection;
+use App\Http\Resources\wishListCollection;
 use App\Models\Category;
 use App\Models\LikeProducts;
 use App\Models\Product;
@@ -69,7 +69,7 @@ class ProductController extends Controller
 
         $data = [
             'categories' => $categories,
-            'products' => new ProductCollection($products),
+            'products' => new wishListCollection($products),
             'pagination' => [
                 'page_number' => $products->currentPage(),
                 'total_rows' => $products->total(),
