@@ -359,6 +359,198 @@
 							"body": "{\n    \"result\": {\n        \"banners\": [\n            {\n                \"id\": 1,\n                \"banner\": \"https://m.media-amazon.com/images/I/614VOsGXsqL._SX1500_.jpg\"\n            },\n            {\n                \"id\": 2,\n                \"banner\": \"https://m.media-amazon.com/images/I/71kFc7PP3PL._SX3000_.jpg\"\n            },\n            {\n                \"id\": 3,\n                \"banner\": \"https://m.media-amazon.com/images/I/717Qv6Rdi+L._SX3000_.jpg\"\n            }\n        ],\n        \"categories\": [\n            {\n                \"id\": 1,\n                \"name\": \"Computer\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Electronics\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Arts & Crafts\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Automotive\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Baby\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Beauty and personal care\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Women's Fashion\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Men's Fashion\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"Health and Household\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"Home and Kitchen\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"Industrial and Scientific\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 12,\n                \"name\": \"Luggage\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 13,\n                \"name\": \"Movies & Television\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 14,\n                \"name\": \"Pet supplies\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 15,\n                \"name\": \"Sports and Outdoors\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 16,\n                \"name\": \"Tools & Home Improvement\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 17,\n                \"name\": \"Toys and Games\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            }\n        ],\n        \"newest_product\": [\n            {\n                \"id\": 1,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Shirt model-131\",\n                \"description\": \"Shirt model-131\",\n                \"price\": 13,\n                \"image\": \"https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            }\n        ],\n        \"flash_sale\": {\n            \"expired_at\": \"2023-11-24T19:50:04.774834Z\",\n            \"products\": [\n                {\n                    \"id\": 1,\n                    \"title\": \"Nike model-934\",\n                    \"description\": \"Nike model-934\",\n                    \"price\": 120,\n                    \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                    \"likes\": 0,\n                    \"isLike\": false,\n                    \"rate\": 3.5\n                },\n                {\n                    \"id\": 2,\n                    \"title\": \"Nike model-934\",\n                    \"description\": \"Nike model-934\",\n                    \"price\": 120,\n                    \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                    \"likes\": 0,\n                    \"isLike\": false,\n                    \"rate\": 3.5\n                },\n                {\n                    \"id\": 3,\n                    \"title\": \"Nike model-934\",\n                    \"description\": \"Nike model-934\",\n                    \"price\": 120,\n                    \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                    \"likes\": 0,\n                    \"isLike\": false,\n                    \"rate\": 3.5\n                },\n                {\n                    \"id\": 4,\n                    \"title\": \"Shirt model-131\",\n                    \"description\": \"Shirt model-131\",\n                    \"price\": 13,\n                    \"image\": \"https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp\",\n                    \"likes\": 0,\n                    \"isLike\": false,\n                    \"rate\": 3.5\n                }\n            ]\n        },\n        \"most_sale\": [\n            {\n                \"id\": 1,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Shirt model-131\",\n                \"description\": \"Shirt model-131\",\n                \"price\": 13,\n                \"image\": \"https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp\",\n                \"likes\": 0,\n                \"isLike\": false,\n                \"rate\": 3.5\n            }\n        ]\n    },\n    \"status\": true,\n    \"alert\": null\n}"
 						}
 					]
+				},
+				{
+					"name": "Filter data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|ckDdS2eEXCo8UnOx1We2Nc4Ew4tocmEoJYH5Ikns4215469a"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}:{{port}}/api/v1/search/filter"
+					},
+					"response": [
+						{
+							"name": "Filter data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{host}}:{{port}}/api/v1/search/filter"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Jan 2024 07:28:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"min_price\": 13,\n        \"max_price\": 120,\n        \"categories\": [\n            {\n                \"id\": 1,\n                \"name\": \"Computer\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Electronics\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Arts & Crafts\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Automotive\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Baby\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Beauty and personal care\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Women's Fashion\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Men's Fashion\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"Health and Household\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"Home and Kitchen\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"Industrial and Scientific\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 12,\n                \"name\": \"Luggage\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 13,\n                \"name\": \"Movies & Television\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 14,\n                \"name\": \"Pet supplies\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 15,\n                \"name\": \"Sports and Outdoors\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 16,\n                \"name\": \"Tools & Home Improvement\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            },\n            {\n                \"id\": 17,\n                \"name\": \"Toys and Games\",\n                \"parent\": 0,\n                \"icon\": \"\"\n            }\n        ]\n    },\n    \"status\": true,\n    \"alert\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|ckDdS2eEXCo8UnOx1We2Nc4Ew4tocmEoJYH5Ikns4215469a"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v1/search?min_price=10&max_price=30&categories_id=4&page=1",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"search"
+							],
+							"query": [
+								{
+									"key": "min_price",
+									"value": "10"
+								},
+								{
+									"key": "max_price",
+									"value": "30"
+								},
+								{
+									"key": "categories_id",
+									"value": "4"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v1/search?min_price=10&max_price=30&category_id=4&page=1",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v1",
+										"search"
+									],
+									"query": [
+										{
+											"key": "min_price",
+											"value": "10"
+										},
+										{
+											"key": "max_price",
+											"value": "30"
+										},
+										{
+											"key": "category_id",
+											"value": "4"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Jan 2024 07:30:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "54"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"products\": [\n            {\n                \"id\": 1,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 10,\n                \"isLike\": true,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 10,\n                \"isLike\": true,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Nike model-934\",\n                \"description\": \"Nike model-934\",\n                \"price\": 120,\n                \"image\": \"https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg\",\n                \"likes\": 10,\n                \"isLike\": true,\n                \"rate\": 3.5\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Shirt model-131\",\n                \"description\": \"Shirt model-131\",\n                \"price\": 13,\n                \"image\": \"https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp\",\n                \"likes\": 10,\n                \"isLike\": true,\n                \"rate\": 3.5\n            }\n        ],\n        \"pagination\": {\n            \"page_number\": 1,\n            \"total_rows\": 4,\n            \"total_pages\": 1,\n            \"has_previous_page\": false,\n            \"has_next_page\": false\n        }\n    },\n    \"status\": true,\n    \"alert\": null\n}"
+						}
+					]
 				}
 			]
 		},
@@ -438,7 +630,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -572,12 +764,48 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{token}}"
+								"token": "2|xb5K3qLEGxl0I6LPiYxvtMwEusFLis3dJbgWGjgd7fd5852f"
 							}
 						},
 						"method": "GET",
-						"header": [],
-						"url": "{{host}}:{{port}}/api/v1/product/watch_list"
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v1/product/wishlist",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"wishlist"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
 					},
 					"response": [
 						{
@@ -634,6 +862,99 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Basket",
+			"item": [
+				{
+					"name": "Add basket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\" : 1,\n    \"count\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}:{{port}}/api/v1/basket/add"
+					},
+					"response": []
+				},
+				{
+					"name": "List basket",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\" : 1,\n    \"count\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}:{{port}}/api/v1/basket"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete basket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}:{{port}}/api/v1/basket/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -669,7 +990,7 @@
 		},
 		{
 			"key": "token",
-			"value": "1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073",
+			"value": "1|JQWtqQtH8GEmGRGKPA16l8JxLqUJShxThEamHvK0909734be",
 			"type": "string"
 		}
 	]
