@@ -74,7 +74,7 @@ class HomeController extends Controller
         $productsQuery = Product::query();
 
         if ($request->has('categories_id')) {
-            $productsQuery->whereIn('category_id', $validatedData['categories_id']);
+            $productsQuery->whereIn('category_id', explode(',',$validatedData['categories_id']));
         }
 
         if ($request->has('min_price')) {

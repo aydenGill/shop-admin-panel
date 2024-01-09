@@ -18,7 +18,7 @@ class SearchRequest extends FormRequest
         return [
             'min_price' => 'nullable|numeric|min:0',
             'max_price' => 'nullable|numeric|gte:min_price',
-            'categories_id' => 'nullable|array|regex:/^(\d+,)*\d+$/',
+            'categories_id' => 'nullable|regex:/^(\d+,)*\d+$/',
             'page' => 'nullable|numeric|min:1',
         ];
     }
