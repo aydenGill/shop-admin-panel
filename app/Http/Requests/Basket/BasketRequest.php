@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Basket;
 
-use App\Traits\BaseApiResponse;
+use App\Http\Requests\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-
-class LoginRequest extends FormRequest
+class BasketRequest extends FormRequest
 {
-    use BaseApiResponse;
+    /**
+     * Determine if the user is authorized to make this request.
+     */
     public function authorize(): bool
     {
         return true;
@@ -23,8 +24,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|max:255|email',
-            'password' => 'required'
+            'product' => ['required', 'exists:products,id'],
+            'count' => ['required', 'numeric', 'min:1'],
         ];
     }
 
@@ -39,4 +40,5 @@ class LoginRequest extends FormRequest
             ],
         ] , 400));
     }
+
 }

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Basket;
 
+use App\Http\Requests\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class RegisterRequest extends FormRequest
+class BasketDeleteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +24,10 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255|min:3',
-            'email' => 'required|unique:users|max:255|email',
-            'password' => 'required'
+            'product' => ['required', 'exists:products,id']
         ];
     }
+
 
     public function failedValidation(Validator|\Illuminate\Contracts\Validation\Validator $validator)
     {

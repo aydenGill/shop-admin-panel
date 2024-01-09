@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SearchRequest;
-use App\Http\Resources\ProductCollection;
+use App\Http\Requests\Search\SearchRequest;
+use App\Http\Resources\Product\ProductCollection;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\LikeProducts;

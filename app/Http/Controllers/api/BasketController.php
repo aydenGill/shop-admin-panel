@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\BasketDeleteRequest;
-use App\Http\Requests\BasketRequest;
+use App\Http\Requests\Basket\BasketDeleteRequest;
+use App\Http\Requests\Basket\BasketRequest;
 use App\Models\Basket;
 use App\Traits\BaseApiResponse;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class BasketController extends Controller
 {

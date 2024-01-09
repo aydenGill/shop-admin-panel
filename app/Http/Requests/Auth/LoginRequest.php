@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
+use App\Http\Requests\Validator;
+use App\Traits\BaseApiResponse;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class BasketDeleteRequest extends FormRequest
+
+class LoginRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+    use BaseApiResponse;
     public function authorize(): bool
     {
         return true;
@@ -23,10 +24,10 @@ class BasketDeleteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'product' => ['required', 'exists:products,id']
+            'email' => 'required|max:255|email',
+            'password' => 'required'
         ];
     }
-
 
     public function failedValidation(Validator|\Illuminate\Contracts\Validation\Validator $validator)
     {
