@@ -29,6 +29,10 @@ If you find this project useful or if you're using it to learn or start your sol
 - Datastore
 - Precompose
 - Koin
+- Coil
+- Turbine
+- Kotest
+- Mockk
 
 
 ### Installation Steps
