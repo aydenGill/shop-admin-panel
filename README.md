@@ -18,7 +18,7 @@ This project involves creating a robust admin panel to manage an e-commerce plat
 If you find this project useful or if you're using it to learn or start your solution, please consider giving it a star. Thank you!
 
 ## Application 📱
-[This](https://github.com/razaghimahdi/Shoping-By-KMP) is a cross-platform application that is built using Jetpack Compose Multiplatform, a declarative framework for sharing UIs across multiple platforms with Kotlin. The application allows users to browse, search, and purchase products from a shopping catalog on Android, iOS.
+[This](https://github.com/razaghimahdi/Shopping-By-KMP) is a cross-platform application that is built using Jetpack Compose Multiplatform, a declarative framework for sharing UIs across multiple platforms with Kotlin. The application allows users to browse, search, and purchase products from a shopping catalog on Android, iOS.
 
 ### Tech Stack 📚
 - Kotlin Multiplatform
