@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Livewire\Users\All as AllUsers;
 use \App\Livewire\Categories\All as AllCategories;
+use \App\Livewire\Products\All as AllProducts;
 
 
 Route::view('/', 'welcome');
@@ -15,4 +16,5 @@ Route::middleware([
     Route::view('/dashboard','dashboard')->name('dashboard');
     Route::get('users',AllUsers::class)->name('admin.users');
     Route::get('categories',AllCategories::class)->name('admin.categories');
+    Route::get('products',AllProducts::class)->name('admin.products');
 });
