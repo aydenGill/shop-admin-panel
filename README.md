@@ -9,6 +9,7 @@
 - [Laravel Installation](#laravel-installation)
 - [Features](#features)
 - [Table of Features](#table-of-features)
+- [Test](#run-test)
 - [Postman Collection](#postman-collection)
 ## Overview
 
@@ -82,6 +83,11 @@ If you find this project useful or if you're using it to learn or start your sol
 | Orders           | -      | -   | - |
 | Profile          | _      | ✔️ Done | -
 
+
+## Run test
+```
+php artisan test
+```
 
 ## Postman Collection
 
