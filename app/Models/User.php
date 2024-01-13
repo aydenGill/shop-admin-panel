@@ -64,6 +64,13 @@ class User extends Authenticatable
         return Attribute::set(fn($value)=>Hash::make($value));
     }
 
+    // relation
+    
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public function likedProducts() : HasMany
     {
         return $this->hasMany(LikeProducts::class, 'user_id');

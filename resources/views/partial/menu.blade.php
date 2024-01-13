@@ -82,6 +82,11 @@
             <div data-i18n="Without menu">List</div>
           </a>
         </li>
+        <li class="menu-item {{ request()->route()->getName() == 'admin.products.add' ? 'active':''}}">
+          <a href="{{ route('admin.products.add') }}" class="menu-link">
+            <div data-i18n="Without menu">Add</div>
+          </a>
+        </li>
       </ul>
     </li>
 

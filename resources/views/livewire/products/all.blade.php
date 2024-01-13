@@ -7,6 +7,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Image</th>
                         <th>Title</th>
                         <th>Price</th>
                         <th>View</th>
@@ -16,7 +17,9 @@
                 <tbody class="table-border-bottom-0">
                     @foreach($products as $product)
                     <tr>
-                        <td> {{ $loop->index+1  }} </td>
+                    <td> {{ $loop->index+1  }} </td>
+
+                        <td><img src="{{asset('storage/'.$product->image)}}" alt="" style="width: 25px;"></td>
                         <td> {{ substr($product->title,0,10) ?? "" }} </td>
                         <td> {{ $product->price ?? "" }}$ </td>
                         <td> {{ $product->view_count ?? "" }} </td>

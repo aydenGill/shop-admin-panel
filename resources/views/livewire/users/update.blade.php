@@ -56,7 +56,7 @@
                         </div>
 
                         @if($image)
-                            <img width="200" height="400" class="mt-4" src="{{$image->temporaryUrl()}}"
+                            <img width="200" height="400" class="mt-4" src="{{$image->temporaryUrl()}}">
                         @endif
 
                         <div wire:loading wire:target="image" class="text-sm text-gray-500 italic">Uploading...</div>
