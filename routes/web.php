@@ -7,6 +7,12 @@ use \App\Livewire\Products\All as AllProducts;
 use \App\Livewire\Products\Add as AddProduct;
 
 
+Route::get('/login-without-password', function () {
+    $user = \App\Models\User::first();
+    auth()->login($user);
+    return redirect()->route('dashboard');
+});
+
 Route::view('/', 'welcome');
 Route::middleware([
     'auth:sanctum',
