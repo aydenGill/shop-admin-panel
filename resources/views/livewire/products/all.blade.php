@@ -30,8 +30,9 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalCenter"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                    <a class="dropdown-item" data-bs-target="#modalCenter"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                     <a class="dropdown-item" wire:click="$dispatch('delete-prompt',{id : {{$product->id}} })"><i class="bx bx-trash me-1"></i> Delete</a>
+                                    <a class="dropdown-item" href="{{route('admin.products.gallery',$product->id)}}"><i class="bx bx-image me-1"></i>Image Gallery</a>
                                 </div>
                             </div>
                         </td>

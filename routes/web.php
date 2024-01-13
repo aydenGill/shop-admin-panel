@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use \App\Livewire\Users\All as AllUsers;
 use \App\Livewire\Categories\All as AllCategories;
+use App\Livewire\ProductGallery\Add as AddGallery;
 use \App\Livewire\Products\All as AllProducts;
 use \App\Livewire\Products\Add as AddProduct;
+
 
 
 Route::get('/login-without-password', function () {
@@ -25,4 +27,5 @@ Route::middleware([
     Route::get('categories',AllCategories::class)->name('admin.categories');
     Route::get('products',AllProducts::class)->name('admin.products');
     Route::get('products/create',AddProduct::class)->name('admin.products.add');
+    Route::get('products/{product}/gallery',AddGallery::class)->name('admin.products.gallery');
 });
