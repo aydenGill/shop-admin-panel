@@ -14,7 +14,7 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login | Sneat</title>
+    <title>Login | panel</title>
 
     <meta name="description" content="" />
 
@@ -116,7 +116,7 @@
                       </g>
                     </svg>
                   </span>
-                            <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                            <span class="app-brand-text demo text-body fw-bolder">Admin</span>
                         </a>
                     </div>
                     <!-- /Logo -->
