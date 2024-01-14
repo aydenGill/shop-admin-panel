@@ -48,6 +48,6 @@ class Add extends Component
             ]);
         }
 
-        return redirect()->route('admin.products');
+        return redirect()->route('admin.products.gallery',$this->product->id);
     }
 }
