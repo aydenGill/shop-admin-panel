@@ -21,9 +21,9 @@ class HomeController extends Controller
     public function index(): JsonResponse
     {
         try {
-            $banners = Banner::query()->select('id','banner')->get();
+            $banners = Banner::query()->select('id', 'banner')->get();
 
-            $products = Product::query()->select('id','title','description','price','image')->get();
+            $products = Product::query()->select('id', 'title', 'description', 'price', 'image')->get();
 
             foreach ($products as $product) {
                 $product->likes = $this->calculateLikesForProduct($product->id);
@@ -32,7 +32,7 @@ class HomeController extends Controller
             }
 
 
-            $categories = Category::query()->select('id','name','parent','icon')->get();
+            $categories = Category::query()->select('id', 'name', 'parent', 'icon')->get();
 
             return $this->success([
                 'banners' => $banners,
@@ -44,9 +44,8 @@ class HomeController extends Controller
                 ],
                 'most_sale' => $products
             ]);
-
-        }catch (EncryptionException $exception){
-            return $this->failed($exception->getMessage(),'Error','Error from server');
+        } catch (EncryptionException $exception) {
+            return $this->failed($exception->getMessage(), 'Error', 'Error from server');
         }
     }
 
@@ -55,15 +54,15 @@ class HomeController extends Controller
         try {
             $get_min_price = Product::query()->min('price');
             $get_max_price = Product::query()->max('price');
-            $categories = Category::query()->select('id','name','parent','icon')->get();
+            $categories = Category::query()->select('id', 'name', 'parent', 'icon')->get();
 
             return $this->success([
                 'min_price' => $get_min_price,
                 'max_price' => $get_max_price,
                 'categories' => $categories
             ]);
-        }catch (\Exception $exception){
-            return $this->failed($exception->getMessage(),'Error','Error from server');
+        } catch (\Exception $exception) {
+            return $this->failed($exception->getMessage(), 'Error', 'Error from server');
         }
     }
 
@@ -74,7 +73,7 @@ class HomeController extends Controller
         $productsQuery = Product::query();
 
         if ($request->has('categories_id')) {
-            $productsQuery->whereIn('category_id', explode(',',$validatedData['categories_id']));
+            $productsQuery->whereIn('category_id', explode(',', $validatedData['categories_id']));
         }
 
         if ($request->has('min_price')) {
@@ -83,6 +82,18 @@ class HomeController extends Controller
 
         if ($request->has('max_price')) {
             $productsQuery->where('price', '<=', $validatedData['max_price']);
+        }
+
+        if ($request->has('sort')) {
+            if ($validatedData['sort'] == 'asc') {
+                $productsQuery->orderBy('price', 'asc');
+            } elseif ($validatedData['sort'] == 'desc') {
+                $productsQuery->orderBy('price', 'desc');
+            } elseif ($validatedData['sort'] == 'hp') {
+                $productsQuery->orderBy('price', 'desc');
+            } elseif ($validatedData['sort'] == 'lp') {
+                $productsQuery->orderBy('price', 'asc');
+            }
         }
 
         $perPage = $request->input('per_page', 15);
@@ -123,5 +134,4 @@ class HomeController extends Controller
     {
         return 3.5;
     }
-
 }
