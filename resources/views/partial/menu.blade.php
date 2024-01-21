@@ -72,7 +72,7 @@
 
     <li class="menu-item {{ request()->route()->getName() == 'admin.products' ? 'active':''}}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-user"></i>
+        <i class="menu-icon tf-icons bx bx-store-alt"></i>
         <div data-i18n="Layouts">Products</div>
       </a>
 
