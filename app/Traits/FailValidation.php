@@ -5,7 +5,7 @@ namespace App\Traits;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use App\Http\Requests\Validator;
 
-trait FailValidaion
+trait FailValidation
 {
     public function failedValidation(Validator|\Illuminate\Contracts\Validation\Validator $validator)
     {
