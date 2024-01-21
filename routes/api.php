@@ -6,6 +6,7 @@ use App\Http\Controllers\api\HomeController;
 use App\Http\Controllers\api\LikeController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\BasketController;
+use App\Http\Controllers\api\CommentController;
 use \App\Http\Controllers\api\ProfileController;
 
 Route::prefix('v1')->group(function (){
@@ -27,6 +28,8 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function (){
     Route::resource('product',ProductController::class)->except(['store','update','delete','edit']);
     Route::get('product/{product}/like', [LikeController::class, 'likeProduct'])->name('api.product.like');
 
+    Route::get('comment/{product}',[CommentController::class,'index'])->name('api.comment');
+    Route::post('comment',[CommentController::class,'store'])->name('api.comment.store');
 
     Route::prefix('basket')->group(function (){
         Route::get('',[BasketController::class,'index'])->name('api.basket');
