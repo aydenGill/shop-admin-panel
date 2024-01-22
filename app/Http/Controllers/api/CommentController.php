@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Comment\StoreComment;
+use App\Http\Resources\Comment\CommentResource;
 use App\Models\Product;
 use App\Traits\BaseApiResponse;
 use Illuminate\Database\Eloquent\Collection;
@@ -15,9 +16,9 @@ class CommentController extends Controller
 
     public function index(Product $product): JsonResponse
     {
-        return $this->success($this->getComments($product));
+        return $this->success(CommentResource::collection($this->getComments($product)));
     }
-
+    
     public function store(StoreComment $request) : JsonResponse
     {
         auth()->user()->comments()->create($request->validated());

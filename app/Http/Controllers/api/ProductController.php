@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Comment\CommentResource;
 use App\Http\Resources\Product\wishListCollection;
 use App\Models\Category;
 use App\Models\LikeProducts;
@@ -12,7 +13,6 @@ use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
-
 
 class ProductController extends Controller
 {
@@ -34,7 +34,7 @@ class ProductController extends Controller
         $product->isLike = $this->isProductLiked($product->id);
         $product->rate = $this->calculateRateForProduct($product->id);
         $product->category = $product->category;
-        $product->comments = $this->getComments();
+        $product->comments = CommentResource::collection($this->getComments($product));
 
         $galleryImages = [
             'https://dkstatics-public.digikala.com/digikala-products/0795518309651e3dda9fde57c607389380138e41_1681912848.jpg',
@@ -83,64 +83,10 @@ class ProductController extends Controller
         return $this->success($data);
     }
 
-    private function getComments(): array
+    private function getComments($product)
     {
-        $comments = [
-            [
-                'user' => [
-                    'first_name' => 'Soheil',
-                    'last_name' => 'Khaledabadi',
-                    'image' => 'https://images.unsplash.com/photo-1633332755192-727a05c4013d'
-                ],
-                'comment' => 'This product is amazing! I love it!',
-                'create_at' => Carbon::now(),
-                'rate' => 3.5
-            ],
-            [
-                'user' => [
-                    'first_name' => 'John',
-                    'last_name' => 'Doe',
-                    'image' => 'https://images.unsplash.com/photo-1633332755192-727a05c4013d'
-                ],
-                'comment' => 'This product is amazing! I love it!',
-                'create_at' => Carbon::now(),
-                'rate' => 3.5
-            ],
-            [
-                'user' => [
-                    'first_name' => 'Alice',
-                    'last_name' => 'Smith',
-                    'image' => 'https://images.unsplash.com/photo-1633332755192-727a05c4013d'
-                ],
-                'comment' => 'This product is amazing! I love it!',
-                'create_at' => Carbon::now(),
-                'rate' => 3.5
-            ],
-            [
-                'user' => [
-                    'first_name' => 'Michael',
-                    'last_name' => 'Johnson',
-                    'image' => 'https://images.unsplash.com/photo-1633332755192-727a05c4013d'
-                ],
-                'comment' => 'This product is amazing! I love it!',
-                'create_at' => Carbon::now(),
-                'rate' => 3.5
-            ],
-            [
-                'user' => [
-                    'first_name' => 'Emily',
-                    'last_name' => 'Williams',
-                    'image' => 'https://images.unsplash.com/photo-1633332755192-727a05c4013d'
-                ],
-                'comment' => 'This product is amazing! I love it!',
-                'create_at' => Carbon::now(),
-                'rate' => 3.5
-            ]
-        ];
-
-        return $comments;
+        return $product->comments()->select('id','comment','created_at','user_id')->with('user:id,name,profile_photo_path')->get();
     }
-
 
     private function calculateLikesForProduct($productId): int
     {
