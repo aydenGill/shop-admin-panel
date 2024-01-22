@@ -86,13 +86,17 @@ class HomeController extends Controller
 
         if ($request->has('sort')) {
             if ($validatedData['sort'] == '0') {
-                $productsQuery->orderBy('price', 'asc');
+                $productsQuery->orderBy('created_at', 'asc');
             } elseif ($validatedData['sort'] == '1') {
-                $productsQuery->orderBy('price', 'desc');
+                $productsQuery->orderBy('created_at', 'desc');
             } elseif ($validatedData['sort'] == '2') {
                 $productsQuery->orderBy('price', 'desc');
             } elseif ($validatedData['sort'] == '3') {
                 $productsQuery->orderBy('price', 'asc');
+            } elseif ($validatedData['sort'] == '4') {
+                $productsQuery->orderBy('view_count', 'desc');
+            } elseif ($validatedData['sort'] == '5') {
+                $productsQuery->orderBy('view_count', 'asc');
             }
         }
 
