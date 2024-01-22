@@ -19,7 +19,7 @@ class SearchRequest extends FormRequest
             'min_price' => 'nullable|numeric|min:0',
             'max_price' => 'nullable|numeric|gte:min_price',
             'categories_id' => 'nullable|regex:/^(\d+,)*\d+$/',
-            'sort' => 'nullable|in:asc,desc,hp,lp',
+            'sort' => 'nullable|in:0,1,2,3',
             'page' => 'nullable|numeric|min:1',
         ];
     }

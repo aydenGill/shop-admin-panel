@@ -85,13 +85,13 @@ class HomeController extends Controller
         }
 
         if ($request->has('sort')) {
-            if ($validatedData['sort'] == 'asc') {
+            if ($validatedData['sort'] == '0') {
                 $productsQuery->orderBy('price', 'asc');
-            } elseif ($validatedData['sort'] == 'desc') {
+            } elseif ($validatedData['sort'] == '1') {
                 $productsQuery->orderBy('price', 'desc');
-            } elseif ($validatedData['sort'] == 'hp') {
+            } elseif ($validatedData['sort'] == '2') {
                 $productsQuery->orderBy('price', 'desc');
-            } elseif ($validatedData['sort'] == 'lp') {
+            } elseif ($validatedData['sort'] == '3') {
                 $productsQuery->orderBy('price', 'asc');
             }
         }
