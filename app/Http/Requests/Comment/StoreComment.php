@@ -20,7 +20,8 @@ class StoreComment extends FormRequest
         return [
             'product_id' => 'required|integer',
             'parent_id' => 'nullable|integer',
-            'comment' => 'required|string'
+            'comment' => 'required|string',
+            'rate' => 'required|integer'
         ];
     }
 }

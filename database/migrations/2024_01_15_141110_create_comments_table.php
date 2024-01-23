@@ -21,6 +21,8 @@ return new class extends Migration
 
             $table->boolean('approved')->default(1);
             $table->text('comment');
+
+            $table->integer('rate')->default(0);
             $table->timestamps();
         });
     }
