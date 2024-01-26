@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\UpdateAddressRequest;
 use App\Http\Requests\Profile\UpdateProfileRequest;
+use App\Http\Resources\Profile\AddressResource;
 use App\Traits\BaseApiResponse;
 use Illuminate\Http\JsonResponse;
 
@@ -41,13 +42,12 @@ class ProfileController extends Controller
 
     public function address()
     {
-        return $this->success(auth()->user()->address,);
+        return $this->success(AddressResource::collection(auth()->user()->address));
     }
 
     public function store_address(UpdateAddressRequest $request)
     {
         $address = auth()->user()->address()->create($request->validated());
-
-        return $this->success($address);
+        return $this->success(new AddressResource($address));
     }
 }
