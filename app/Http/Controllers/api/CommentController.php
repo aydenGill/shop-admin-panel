@@ -28,6 +28,6 @@ class CommentController extends Controller
 
     private function getComments(Product $product): Collection
     {
-        return  $product->comments()->select('id','comment','created_at','user_id')->with('user:id,name,profile_photo_path')->get();
+        return  $product->comments()->select('id','comment','created_at','rate','user_id')->with('user:id,name,profile_photo_path')->get();
     }
 }

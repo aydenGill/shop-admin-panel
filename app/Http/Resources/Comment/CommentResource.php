@@ -23,7 +23,7 @@ class CommentResource extends JsonResource
             'id' => $this->id,
             'comment' => $this->comment,
             'created_at' => $this->created_at,
-            'rate' => 3.5
+            'rate' => $this->rate,
         ];
     }
 }
