@@ -17,6 +17,7 @@ Route::prefix('v1')->group(function (){
 Route::prefix('v1')->middleware('auth:sanctum')->group(function (){
 
    Route::get('profile',[ProfileController::class,'index'])->name('api.home');
+   Route::post('profile',[ProfileController::class,'update'])->name('api.home');
    Route::get('home' , [HomeController::class , 'index'])->name('api.home');
 
    Route::prefix('search')->group(function (){
@@ -36,4 +37,7 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function (){
         Route::post('add',[BasketController::class,'add'])->name('api.basket.add');
         Route::post('delete',[BasketController::class,'delete'])->name('api.basket.delete');
     });
+
+    Route::get('address',[ProfileController::class,'address'])->name('api.address');
+    Route::post('address',[ProfileController::class,'store_address'])->name('api.address.store');
 });

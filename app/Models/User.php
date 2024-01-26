@@ -34,7 +34,8 @@ class User extends Authenticatable
         'password',
         'is_superuser',
         'is_staff',
-        'profile_photo_path'
+        'profile_photo_path',
+        'age'
     ];
 
     /**
@@ -79,5 +80,10 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function address()
+    {
+        return $this->hasMany(Address::class);
     }
 }
