@@ -25,24 +25,15 @@ class ProductController extends Controller
 
     public function show(Product $product): JsonResponse
     {
-        $product = $product
-            ->select('id', 'title', 'description', 'price', 'image', 'category_id')
-            ->with('category:id,name,parent,icon')
-            ->first();
-
         $product->likes = $this->calculateLikesForProduct($product->id);
         $product->isLike = $this->isProductLiked($product->id);
         $product->rate = $this->calculateRateForProduct($product->id);
         $product->category = $product->category;
         $product->comments = CommentResource::collection($this->getComments($product));
+        $product->gallery = $product->galleries()->pluck('image')->map(function($item){
+            return asset('storage/'.$item);
+        });
 
-        $galleryImages = [
-            'https://dkstatics-public.digikala.com/digikala-products/0795518309651e3dda9fde57c607389380138e41_1681912848.jpg',
-            'https://dkstatics-public.digikala.com/digikala-products/db0cc3025e0cc1ce4b66facca2ada2d69a804a03_1681912853.jpg',
-            'https://dkstatics-public.digikala.com/digikala-products/391e9ce961e2a603642be1cf1ce2a3c6c08cd43c_1681912851.jpg'
-        ];
-
-        $product->gallery = $galleryImages;
 
         return $this->success($product);
     }
