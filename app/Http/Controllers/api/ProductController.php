@@ -31,7 +31,7 @@ class ProductController extends Controller
         $product->category = $product->category;
         $product->comments = CommentResource::collection($this->getComments($product));
         $product->gallery = $product->galleries()->pluck('image')->map(function($item){
-            return asset('storage/'.$item);
+            return secure_asset('storage/'.$item);
         });
 
 
