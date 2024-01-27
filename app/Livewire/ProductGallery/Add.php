@@ -18,7 +18,7 @@ class Add extends Component
     public function mount(): void
     {
         $this->fill([
-            'inputs' => collect([['alt' => '', 'image' => '']])
+            'inputs' => collect([['alt' => '', 'image' => '']]),
         ]);
     }
 
@@ -34,7 +34,7 @@ class Add extends Component
 
     public function add(): void
     {
-        $this->inputs->push(['alt' => '', 'image' => '',]);
+        $this->inputs->push(['alt' => '', 'image' => '']);
     }
 
     public function save()
@@ -44,10 +44,10 @@ class Add extends Component
             ProductGallery::query()->create([
                 'product_id' => $this->product->id,
                 'image' => $item['image'],
-                'alt' => $item['alt']
+                'alt' => $item['alt'],
             ]);
         }
 
-        return redirect()->route('admin.products.gallery',$this->product->id);
+        return redirect()->route('admin.products.gallery', $this->product->id);
     }
 }

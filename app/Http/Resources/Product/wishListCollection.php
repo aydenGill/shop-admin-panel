@@ -11,6 +11,7 @@ class wishListCollection extends ResourceCollection
     {
         $productsData = $this->collection->map(function ($likeProduct) {
             $product = $likeProduct->product;
+
             return [
                 'id' => $product->id,
                 'title' => $product->title,

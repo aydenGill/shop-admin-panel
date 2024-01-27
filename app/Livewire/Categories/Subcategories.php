@@ -10,13 +10,12 @@ use Livewire\WithFileUploads;
 
 class Subcategories extends Component
 {
-
     use WithFileUploads;
 
     public $id;
 
     #[Rule('required|max:255')]
-    public $name ;
+    public $name;
 
     #[Rule('mimes:jpeg,png,jpg,gif|max:2048')]
     public $icon;
@@ -28,7 +27,6 @@ class Subcategories extends Component
         Category::query()->findOrFail($id);
         $this->id = $id;
     }
-
 
     public function save()
     {

@@ -12,7 +12,7 @@ class ProductGallery extends Model
     protected $fillable = [
         'product_id',
         'image',
-        'alt'
+        'alt',
     ];
 
     public function product()

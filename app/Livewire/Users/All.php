@@ -4,8 +4,8 @@ namespace App\Livewire\Users;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\Component;
 
 class All extends Component
 {
@@ -16,10 +16,9 @@ class All extends Component
     public function mount(): void
     {
         $this->users = User::query()
-            ->select('id','name','mobile','email','is_superuser','is_staff')
-                ->get();
+            ->select('id', 'name', 'mobile', 'email', 'is_superuser', 'is_staff')
+            ->get();
     }
-
 
     public function render()
     {
@@ -27,7 +26,7 @@ class All extends Component
     }
 
     #[On('goOn-Delete')]
-    function delete($id): void
+    public function delete($id): void
     {
         User::query()->find($id)->delete();
         $this->dispatch('deleted');
@@ -37,8 +36,7 @@ class All extends Component
     public function refreshUsers(): void
     {
         $this->users = User::query()
-            ->select('id','name','mobile','email','is_superuser','is_staff')
+            ->select('id', 'name', 'mobile', 'email', 'is_superuser', 'is_staff')
             ->get();
     }
-
 }

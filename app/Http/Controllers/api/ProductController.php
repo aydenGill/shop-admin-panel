@@ -9,7 +9,6 @@ use App\Models\Category;
 use App\Models\LikeProducts;
 use App\Models\Product;
 use App\Traits\BaseApiResponse;
-use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -17,9 +16,11 @@ use Illuminate\Pagination\Paginator;
 class ProductController extends Controller
 {
     use BaseApiResponse;
+
     public function index(): JsonResponse
     {
         $products = Product::all();
+
         return $this->success($products);
     }
 
@@ -30,10 +31,9 @@ class ProductController extends Controller
         $product->rate = $this->calculateRateForProduct($product->id);
         $product->category = $product->category;
         $product->comments = CommentResource::collection($this->getComments($product));
-        $product->gallery = $product->galleries()->pluck('image')->map(function($item){
+        $product->gallery = $product->galleries()->pluck('image')->map(function ($item) {
             return secure_asset('storage/'.$item);
         });
-
 
         return $this->success($product);
     }
@@ -48,8 +48,8 @@ class ProductController extends Controller
             });
         }
 
-        $perPage = $request->has('per_page') ? (int)$request->input('per_page') : 15;
-        $currentPage = $request->has('page') ? (int)$request->input('page') : 1;
+        $perPage = $request->has('per_page') ? (int) $request->input('per_page') : 15;
+        $currentPage = $request->has('page') ? (int) $request->input('page') : 1;
 
         Paginator::currentPageResolver(function () use ($currentPage) {
             return $currentPage;
@@ -57,7 +57,7 @@ class ProductController extends Controller
 
         $products = $productsQuery->paginate($perPage);
 
-        $categories = Category::query()->select('id','name','parent','icon')->get();
+        $categories = Category::query()->select('id', 'name', 'parent', 'icon')->get();
 
         $data = [
             'categories' => $categories,
@@ -68,7 +68,7 @@ class ProductController extends Controller
                 'total_pages' => $products->lastPage(),
                 'has_previous_page' => $products->previousPageUrl() !== null,
                 'has_next_page' => $products->nextPageUrl() !== null,
-            ]
+            ],
         ];
 
         return $this->success($data);
@@ -76,7 +76,7 @@ class ProductController extends Controller
 
     private function getComments($product)
     {
-        return $product->comments()->select('id','comment','created_at','user_id')->with('user:id,name,profile_photo_path')->get();
+        return $product->comments()->select('id', 'comment', 'created_at', 'user_id')->with('user:id,name,profile_photo_path')->get();
     }
 
     private function calculateLikesForProduct($productId): int
@@ -95,5 +95,4 @@ class ProductController extends Controller
     {
         return 3.5;
     }
-
 }

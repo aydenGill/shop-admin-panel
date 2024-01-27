@@ -15,7 +15,7 @@ class Update extends Component
     public $id;
 
     #[Rule('required|max:255')]
-    public $name ;
+    public $name;
 
     public $parent;
 
@@ -43,9 +43,9 @@ class Update extends Component
         $this->validate();
 
         Category::query()->findOrFail($this->id)->update([
-                'name' => $this->name,
-                'parent' => $this->parent ?? 0,
-                'icon' => $this->icon ? storeUploadedFile($this->icon, 'upload') : '',
+            'name' => $this->name,
+            'parent' => $this->parent ?? 0,
+            'icon' => $this->icon ? storeUploadedFile($this->icon, 'upload') : '',
         ]);
 
         $this->dispatch('reset-modal');

@@ -31,8 +31,7 @@ class Handler extends ExceptionHandler
         });
 
         $this->renderable(function (Throwable $exception, $request) {
-            if ($request->is('api/*') && $exception instanceof \Illuminate\Auth\AuthenticationException)
-            {
+            if ($request->is('api/*') && $exception instanceof \Illuminate\Auth\AuthenticationException) {
                 return $this->handleUnauthenticated($exception);
             }
         });
@@ -41,7 +40,6 @@ class Handler extends ExceptionHandler
     /**
      * Handle the API not found exception.
      *
-     * @param NotFoundHttpException $exception
      * @return \Illuminate\Http\JsonResponse
      */
     private function handleApiNotFound(NotFoundHttpException $exception)
@@ -51,15 +49,14 @@ class Handler extends ExceptionHandler
             'status' => false,
             'alert' => [
                 'title' => 'Not Found',
-                'message' => 'Record not found.'
-            ]
+                'message' => 'Record not found.',
+            ],
         ], 404);
     }
 
     /**
      * Handle the unauthenticated exception.
      *
-     * @param Throwable $exception
      * @return \Illuminate\Http\JsonResponse
      */
     private function handleUnauthenticated(Throwable $exception)
@@ -69,8 +66,8 @@ class Handler extends ExceptionHandler
             'status' => false,
             'alert' => [
                 'title' => 'Unauthenticated',
-                'message' => 'Unauthenticated.'
-            ]
+                'message' => 'Unauthenticated.',
+            ],
         ], 401);
     }
 }

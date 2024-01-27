@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,15 +17,15 @@ class DatabaseSeeder extends Seeder
             CategoriesSeeder::class,
             BannerSeeder::class,
             ProductSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
         ]);
 
-       User::factory()->create([
-           "name" => "admin",
-           "email" => "admin@shop.com",
-           "password" => 'admin_admin',
-           "is_superuser" => 1,
-           "is_staff" => 0
-       ]);
+        User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@shop.com',
+            'password' => 'admin_admin',
+            'is_superuser' => 1,
+            'is_staff' => 0,
+        ]);
     }
 }

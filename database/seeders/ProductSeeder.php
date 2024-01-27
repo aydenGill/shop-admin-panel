@@ -14,7 +14,6 @@ class ProductSeeder extends Seeder
     {
         Product::query()->truncate();
 
-
         $products = [
             [
                 'user_id' => 1,
@@ -25,7 +24,7 @@ class ProductSeeder extends Seeder
                 'category_id' => 5,
                 'image' => 'https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/712koZKUvHL._AC_SX679_.jpg',
                 'inventory' => 100,
-                'view_count' => 300
+                'view_count' => 300,
             ],
             [
                 'user_id' => 1,
@@ -36,7 +35,7 @@ class ProductSeeder extends Seeder
                 'category_id' => 2,
                 'image' => 'https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/51ja6ds+pML._AC_SX679_.jpg',
                 'inventory' => 30,
-                'view_count' => 40
+                'view_count' => 40,
             ],
             [
                 'user_id' => 1,
@@ -47,7 +46,7 @@ class ProductSeeder extends Seeder
                 'category_id' => 5,
                 'image' => 'https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/816gTVTqs5L._AC_SL1500_.jpg',
                 'inventory' => 30,
-                'view_count' => 40
+                'view_count' => 40,
             ],
             [
                 'user_id' => 1,
@@ -58,7 +57,7 @@ class ProductSeeder extends Seeder
                 'category_id' => 1,
                 'image' => 'https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg',
                 'inventory' => 10,
-                'view_count' => 10
+                'view_count' => 10,
             ],
             [
                 'user_id' => 1,
@@ -69,7 +68,7 @@ class ProductSeeder extends Seeder
                 'category_id' => 2,
                 'image' => 'https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg',
                 'inventory' => 10,
-                'view_count' => 10
+                'view_count' => 10,
             ],
             [
                 'user_id' => 1,
@@ -80,7 +79,7 @@ class ProductSeeder extends Seeder
                 'category_id' => 3,
                 'image' => 'https://www.deadstock.de/wp-content/uploads/2023/01/Jordan-1-Mid-Barely-Grape-DQ8423-501-dead-stock-titel-bild-.jpeg',
                 'inventory' => 10,
-                'view_count' => 10
+                'view_count' => 10,
             ],
             [
                 'user_id' => 1,
@@ -91,8 +90,8 @@ class ProductSeeder extends Seeder
                 'category_id' => 4,
                 'image' => 'https://img.ltwebstatic.com/images3_pi/2022/08/22/1661139363d0af2b9ebc4be1a701c62b3af5e237ef.webp',
                 'inventory' => 10,
-                'view_count' => 10
-            ]
+                'view_count' => 10,
+            ],
         ];
 
         foreach ($products as $productData) {

@@ -17,11 +17,10 @@ class ProfileController extends Controller
     {
         return $this->success([
             'name' => auth()->user()->name,
-            'profile_url' => asset('storage/' . auth()->user()->profile_photo_path),
-            'age' => auth()->user()->age ?? 0
+            'profile_url' => asset('storage/'.auth()->user()->profile_photo_path),
+            'age' => auth()->user()->age ?? 0,
         ]);
     }
-
 
     public function update(UpdateProfileRequest $request)
     {
@@ -35,8 +34,8 @@ class ProfileController extends Controller
 
         return $this->success([
             'name' => $user->name,
-            'profile_url' => asset('storage/' . $user->profile_photo_path),
-            'age' => $user->age
+            'profile_url' => asset('storage/'.$user->profile_photo_path),
+            'age' => $user->age,
         ]);
     }
 
@@ -48,6 +47,7 @@ class ProfileController extends Controller
     public function store_address(UpdateAddressRequest $request)
     {
         $address = auth()->user()->address()->create($request->validated());
+
         return $this->success(new AddressResource($address));
     }
 }

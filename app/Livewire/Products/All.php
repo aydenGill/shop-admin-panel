@@ -24,7 +24,7 @@ class All extends Component
     }
 
     #[On('deleted-prompt')]
-    function delete($id): void
+    public function delete($id): void
     {
         Product::query()->find($id)->delete();
         $this->dispatch('deleted');

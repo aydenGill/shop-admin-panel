@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class LikeProducts extends Model
 {
     protected $primaryKey = null;
+
     public $incrementing = false;
+
     protected $keyType = 'array';
 
     protected $fillable = [
         'user_id',
-        'product_id'
+        'product_id',
     ];
 
     public $timestamps = false;
@@ -21,7 +23,7 @@ class LikeProducts extends Model
     {
         return [
             $this->user_id,
-            $this->product_id
+            $this->product_id,
         ];
     }
 
@@ -41,7 +43,7 @@ class LikeProducts extends Model
 
     public function getKeyName()
     {
-        return ['user_id', 'product_id']; 
+        return ['user_id', 'product_id'];
     }
 
     public function user()

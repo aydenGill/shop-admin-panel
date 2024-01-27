@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->foreignId('user_id');
 
-            $table->primary(['user_id','product_id']);
+            $table->primary(['user_id', 'product_id']);
         });
     }
 

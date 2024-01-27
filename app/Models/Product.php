@@ -19,7 +19,7 @@ class Product extends Model
         'image',
         'inventory',
         'view_count',
-        'category_id'
+        'category_id',
     ];
 
     // You can use this code for many-to-many relation
@@ -28,7 +28,7 @@ class Product extends Model
     //     return $this->belongsToMany(Category::class , 'category_products')->withPivot('product_id', 'category_id');
     // }
 
-    public function category() : BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }

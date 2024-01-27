@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -18,9 +18,9 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
+    use HasRoles;
     use Notifiable;
     use TwoFactorAuthenticatable;
-    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -35,7 +35,7 @@ class User extends Authenticatable
         'is_superuser',
         'is_staff',
         'profile_photo_path',
-        'age'
+        'age',
     ];
 
     /**
@@ -60,19 +60,19 @@ class User extends Authenticatable
     ];
 
     // helper
-    public function password():Attribute
+    public function password(): Attribute
     {
-        return Attribute::set(fn($value)=>Hash::make($value));
+        return Attribute::set(fn ($value) => Hash::make($value));
     }
 
     // relation
-    
+
     public function products()
     {
         return $this->hasMany(Product::class);
     }
 
-    public function likedProducts() : HasMany
+    public function likedProducts(): HasMany
     {
         return $this->hasMany(LikeProducts::class, 'user_id');
     }

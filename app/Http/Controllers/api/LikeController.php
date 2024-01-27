@@ -10,6 +10,7 @@ use App\Traits\BaseApiResponse;
 class LikeController extends Controller
 {
     use BaseApiResponse;
+
     public function likeProduct(Product $product)
     {
         $userId = auth()->id();
@@ -20,13 +21,15 @@ class LikeController extends Controller
 
         if ($existingLike) {
             $existingLike->delete();
-            return $this->success(null,'Success','Product unliked successfully');
+
+            return $this->success(null, 'Success', 'Product unliked successfully');
         }
 
         LikeProducts::create([
             'product_id' => $product->id,
             'user_id' => $userId,
         ]);
-        return $this->success(null,'Success','Product liked successfully');
+
+        return $this->success(null, 'Success', 'Product liked successfully');
     }
 }

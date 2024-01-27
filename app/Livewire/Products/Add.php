@@ -12,7 +12,17 @@ class Add extends Component
     use WithFileUploads;
 
     #[Rule('required')]
-    public $title, $slug, $description, $price, $inventory, $category_id;
+    public $title;
+
+    public $slug;
+
+    public $description;
+
+    public $price;
+
+    public $inventory;
+
+    public $category_id;
 
     #[Rule('mimes:jpeg,png,jpg,gif|max:2048')]
     public $image;

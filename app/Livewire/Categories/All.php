@@ -12,6 +12,7 @@ class All extends Component
     use WithFileUploads;
 
     public $categories;
+
     public function render()
     {
         return view('livewire.categories.all');
@@ -30,14 +31,13 @@ class All extends Component
 
     private function loadCategories(): void
     {
-        $this->categories = Category::query()->select('id','name','parent','icon')->get();
+        $this->categories = Category::query()->select('id', 'name', 'parent', 'icon')->get();
     }
 
     #[On('goOn-Delete')]
-    function delete($id): void
+    public function delete($id): void
     {
         Category::query()->find($id)->delete();
         $this->dispatch('deleted');
     }
-
 }

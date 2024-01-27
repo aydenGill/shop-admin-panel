@@ -17,7 +17,7 @@ trait BaseApiResponse
         ], $code);
     }
 
-    public function failed($data,string $title = null,string $message = null, int $code = 500): JsonResponse
+    public function failed($data, ?string $title = null, ?string $message = null, int $code = 500): JsonResponse
     {
         $alert = ($title !== null || $message !== null) ? ['title' => $title, 'message' => $message] : null;
 

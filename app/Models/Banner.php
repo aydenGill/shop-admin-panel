@@ -14,6 +14,6 @@ class Banner extends Model
         'alt',
         'link',
         'expired_at',
-        'is_enable'
+        'is_enable',
     ];
 }

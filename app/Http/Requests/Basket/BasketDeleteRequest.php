@@ -8,16 +8,16 @@ use Illuminate\Foundation\Http\FormRequest;
 class BasketDeleteRequest extends FormRequest
 {
     use FailValidaion;
+
     public function authorize(): bool
     {
         return true;
     }
 
-
     public function rules(): array
     {
         return [
-            'product' => ['required', 'exists:products,id']
+            'product' => ['required', 'exists:products,id'],
         ];
     }
 }

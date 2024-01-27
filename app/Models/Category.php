@@ -14,27 +14,28 @@ class Category extends Model
         'id',
         'name',
         'icon',
-        'parent'
+        'parent',
     ];
 
     public function child(): HasMany
     {
-        return $this->hasMany(Category::class , 'parent' , 'id');
+        return $this->hasMany(Category::class, 'parent', 'id');
     }
 
     // Helper
     public function getIconAttribute($value): string
     {
         if ($value) {
-            return env('APP_URL') . '/storage/' . $value;
+            return env('APP_URL').'/storage/'.$value;
         }
+
         return $value;
     }
 
     // You can use this code for many-to-many relation
-//    public function products()
-//    {
-//        return $this->belongsToMany(Product::class ,'category_products');
-//    }
+    //    public function products()
+    //    {
+    //        return $this->belongsToMany(Product::class ,'category_products');
+    //    }
 
 }

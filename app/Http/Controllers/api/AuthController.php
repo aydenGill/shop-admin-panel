@@ -13,19 +13,21 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     use BaseApiResponse;
+
     public function Login(LoginRequest $request): JsonResponse
     {
         try {
-            $user = User::query()->select('id','email','password')->where('email', $request->input('email'))->first();
+            $user = User::query()->select('id', 'email', 'password')->where('email', $request->input('email'))->first();
 
-            if (!$user || !Hash::check($request->input('password'), $user->password)) {
-                return $this->failed(null,'Invalid','Invalid credentials',401);
+            if (! $user || ! Hash::check($request->input('password'), $user->password)) {
+                return $this->failed(null, 'Invalid', 'Invalid credentials', 401);
             }
 
             $token = $user->createToken('token_base_name')->plainTextToken;
-            return $this->success($token,'Login','Login successful');
+
+            return $this->success($token, 'Login', 'Login successful');
         } catch (Exception $exception) {
-            return $this->failed($exception->getMessage(),'Error','Error form server');
+            return $this->failed($exception->getMessage(), 'Error', 'Error form server');
         }
     }
 
@@ -34,11 +36,12 @@ class AuthController extends Controller
         try {
             $user = User::query()
                 ->select('id')
-                    ->create($request->all());
+                ->create($request->all());
             $token = $user->createToken('token_base_name')->plainTextToken;
-            return $this->success($token,'Registration','Registration successful',201);
+
+            return $this->success($token, 'Registration', 'Registration successful', 201);
         } catch (Exception $exception) {
-            return $this->failed($exception->getMessage(),'Error','Error form server');
+            return $this->failed($exception->getMessage(), 'Error', 'Error form server');
         }
     }
 }

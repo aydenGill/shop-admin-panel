@@ -3,7 +3,6 @@
 namespace App\Livewire\Users;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -11,13 +10,16 @@ use Livewire\WithFileUploads;
 
 class Update extends Component
 {
-
     use WithFileUploads;
 
     public $id;
 
     #[Rule('required')]
-    public $name,$email,$mobile;
+    public $name;
+
+    public $email;
+
+    public $mobile;
 
     #[Rule('mimes:jpeg,png,jpg,gif|max:2048')]
     public $image;
@@ -26,7 +28,7 @@ class Update extends Component
     public function edit($id): void
     {
         $user = User::query()
-            ->select('id','name','mobile','email')
+            ->select('id', 'name', 'mobile', 'email')
             ->find($id);
 
         $this->id = $user->id;
@@ -46,7 +48,6 @@ class Update extends Component
         $this->dispatch('refresh-users');
         $this->dispatch('reset-modal');
     }
-
 
     public function render()
     {

@@ -7,8 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreComment extends FormRequest
 {
-
-    use FailValidation; 
+    use FailValidation;
 
     public function authorize(): bool
     {
@@ -21,7 +20,7 @@ class StoreComment extends FormRequest
             'product_id' => 'required|integer',
             'parent_id' => 'nullable|integer',
             'comment' => 'required|string',
-            'rate' => 'required|integer'
+            'rate' => 'required|integer',
         ];
     }
 }

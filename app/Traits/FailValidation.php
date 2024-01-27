@@ -1,9 +1,9 @@
 <?php
+
 namespace App\Traits;
 
-
-use Illuminate\Http\Exceptions\HttpResponseException;
 use App\Http\Requests\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 trait FailValidation
 {
@@ -11,12 +11,11 @@ trait FailValidation
     {
         throw new HttpResponseException(response()->json([
             'result' => null,
-            'status'   => false,
-            'alert'   => [
+            'status' => false,
+            'alert' => [
                 'title' => 'Error',
-                'message' => 'validation error , please fill data currently'
+                'message' => 'validation error , please fill data currently',
             ],
-        ] , 400));
+        ], 400));
     }
 }
-

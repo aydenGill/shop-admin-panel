@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class RegisterRequest extends FormRequest
 {
     use FailValidation;
+
     public function authorize(): bool
     {
         return true;
@@ -18,7 +19,7 @@ class RegisterRequest extends FormRequest
         return [
             'name' => 'required|max:255|min:3',
             'email' => 'required|unique:users|max:255|email',
-            'password' => 'required'
+            'password' => 'required',
         ];
     }
 }

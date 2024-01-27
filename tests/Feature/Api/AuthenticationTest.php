@@ -4,7 +4,6 @@ namespace Tests\Feature\Api;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
@@ -19,11 +18,12 @@ class AuthenticationTest extends TestCase
         $this->user = User::factory()->create();
     }
 
-    public function test_register_new_user(){
-        $response = $this->post(route('api.register'),[
+    public function test_register_new_user()
+    {
+        $response = $this->post(route('api.register'), [
             'name' => fake()->name,
             'email' => fake()->email,
-            'password' => 'password'
+            'password' => 'password',
         ]);
 
         $response->assertStatus(201);
@@ -31,8 +31,8 @@ class AuthenticationTest extends TestCase
             'status' => true,
             'alert' => [
                 'title' => 'Registration',
-                'message' => 'Registration successful'
-            ]
+                'message' => 'Registration successful',
+            ],
         ]);
     }
 }

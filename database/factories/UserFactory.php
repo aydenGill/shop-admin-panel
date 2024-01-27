@@ -2,9 +2,7 @@
 
 namespace Database\Factories;
 
-
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -17,23 +15,23 @@ class UserFactory extends Factory
             'password' => 'password',
             'is_superuser' => $this->faker->boolean,
             'is_staff' => $this->faker->boolean,
-            'profile_photo_path' => $this->faker->image
+            'profile_photo_path' => $this->faker->image,
         ];
     }
 
     public function superUser(): static
     {
-        return $this->state(function (array $attr){
+        return $this->state(function (array $attr) {
             return [
-              'is_superuser' => true,
-              'is_staff' => false,
+                'is_superuser' => true,
+                'is_staff' => false,
             ];
         });
     }
 
     public function staff(): static
     {
-        return $this->state(function (array $attr){
+        return $this->state(function (array $attr) {
             return [
                 'is_superuser' => false,
                 'is_staff' => true,
@@ -41,10 +39,9 @@ class UserFactory extends Factory
         });
     }
 
-
-    public function notAdmin() : static
+    public function notAdmin(): static
     {
-        return $this->state(function (array $attr){
+        return $this->state(function (array $attr) {
             return [
                 'is_superuser' => false,
                 'is_staff' => false,

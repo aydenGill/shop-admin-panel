@@ -14,7 +14,7 @@ class Basket extends Model
         'user_id',
         'product_id',
         'count',
-        'status'
+        'status',
     ];
 
     public function Product(): BelongsTo

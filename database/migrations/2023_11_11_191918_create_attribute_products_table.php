@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('product_id');
             $table->foreignId('value_id');
 
-            $table->primary(['attribute_id' , 'product_id' ,'value_id']);
+            $table->primary(['attribute_id', 'product_id', 'value_id']);
 
             $table->timestamps();
         });

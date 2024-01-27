@@ -18,6 +18,7 @@ use MongoDB\Driver\Exception\EncryptionException;
 class HomeController extends Controller
 {
     use BaseApiResponse;
+
     public function index(): JsonResponse
     {
         try {
@@ -31,7 +32,6 @@ class HomeController extends Controller
                 $product->rate = $this->calculateRateForProduct($product->id);
             }
 
-
             $categories = Category::query()->select('id', 'name', 'parent', 'icon')->get();
 
             return $this->success([
@@ -40,9 +40,9 @@ class HomeController extends Controller
                 'newest_product' => $products,
                 'flash_sale' => [
                     'expired_at' => Carbon::now()->addDays(5),
-                    'products' => $products
+                    'products' => $products,
                 ],
-                'most_sale' => $products
+                'most_sale' => $products,
             ]);
         } catch (EncryptionException $exception) {
             return $this->failed($exception->getMessage(), 'Error', 'Error from server');
@@ -59,7 +59,7 @@ class HomeController extends Controller
             return $this->success([
                 'min_price' => $get_min_price,
                 'max_price' => $get_max_price,
-                'categories' => $categories
+                'categories' => $categories,
             ]);
         } catch (\Exception $exception) {
             return $this->failed($exception->getMessage(), 'Error', 'Error from server');
@@ -105,7 +105,7 @@ class HomeController extends Controller
 
         Paginator::currentPageResolver(fn () => $currentPage);
 
-        $products = $productsQuery->paginate((int)$perPage);
+        $products = $productsQuery->paginate((int) $perPage);
 
         $paginationData = [
             'page_number' => $products->currentPage(),
@@ -120,7 +120,6 @@ class HomeController extends Controller
             'pagination' => $paginationData,
         ]);
     }
-
 
     private function calculateLikesForProduct($productId): int
     {

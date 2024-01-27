@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class SearchRequest extends FormRequest
 {
     use FailValidaion;
+
     public function authorize(): bool
     {
         return true;

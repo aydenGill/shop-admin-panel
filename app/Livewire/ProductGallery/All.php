@@ -10,7 +10,6 @@ use Livewire\Component;
 
 class All extends Component
 {
-
     use RefreshDatabase;
 
     public $galleries;
@@ -21,7 +20,7 @@ class All extends Component
     {
         $this->galleries = $this->product->galleries;
     }
-    
+
     public function render()
     {
         return view('livewire.product-gallery.all');
@@ -39,5 +38,4 @@ class All extends Component
     {
         $this->galleries = $this->product->galleries;
     }
-
 }
