@@ -78,6 +78,7 @@ If you find this project useful or if you're using it to learn or start your sol
 | Dashboard        | 🔜 Coming Soon | ✔️ Yes     | 🔜 Coming Soon |
 | Search        | ❌ No | ✔️ Done     | ❌ No |
 | Users            | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
+| Users Address            | 🔜 Coming Soon      | ✔️ Yes    | ❌ No |
 | Categories       | ✔️ Done      | ❌ No    | 🔜 Coming Soon |
 | Products         | ✔️ Done |  ✔️ Yes   | 🔜 Coming Soon   | 
 | Orders           | -      | -   | - |
