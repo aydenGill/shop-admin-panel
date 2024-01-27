@@ -16,6 +16,7 @@ class Address extends Model
         'state',
         'zip_code',
         'is_default',
+        'county'
     ];
 
     public function user()

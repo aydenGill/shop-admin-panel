@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Search\SearchRequest;
 use App\Http\Resources\Product\ProductCollection;
+use App\Http\Resources\Profile\AddressResource;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\LikeProducts;
@@ -38,6 +39,7 @@ class HomeController extends Controller
                 'banners' => $banners,
                 'categories' => $categories,
                 'newest_product' => $products,
+                'address' => new AddressResource(auth()->user()->address()->first()),
                 'flash_sale' => [
                     'expired_at' => Carbon::now()->addDays(5),
                     'products' => $products,
