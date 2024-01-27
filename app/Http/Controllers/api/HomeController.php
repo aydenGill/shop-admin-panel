@@ -34,12 +34,12 @@ class HomeController extends Controller
             }
 
             $categories = Category::query()->select('id', 'name', 'parent', 'icon')->get();
-
+            $address = auth()->user()->address()->first() ? new AddressResource(auth()->user()->address()->first()) : null;
             return $this->success([
                 'banners' => $banners,
                 'categories' => $categories,
                 'newest_product' => $products,
-                'address' => new AddressResource(auth()->user()->address()->first()),
+                'address' => $address,
                 'flash_sale' => [
                     'expired_at' => Carbon::now()->addDays(5),
                     'products' => $products,
