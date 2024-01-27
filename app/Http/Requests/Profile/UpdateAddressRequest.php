@@ -22,7 +22,6 @@ class UpdateAddressRequest extends FormRequest
             'city' => ['required'],
             'state' => ['required'],
             'zip_code' => ['required'],
-            'is_default' => ['required'],
         ];
     }
 }
