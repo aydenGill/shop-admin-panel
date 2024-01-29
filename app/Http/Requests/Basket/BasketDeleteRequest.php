@@ -2,12 +2,13 @@
 
 namespace App\Http\Requests\Basket;
 
-use App\Traits\FailValidaion;
+use App\Traits\FailValidation;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BasketDeleteRequest extends FormRequest
 {
-    use FailValidaion;
+
+    use FailValidation;
 
     public function authorize(): bool
     {
