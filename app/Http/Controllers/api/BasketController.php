@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Basket\BasketDeleteRequest;
 use App\Http\Requests\Basket\BasketRequest;
+use App\Http\Resources\Basket\BasketResource;
 use App\Models\Basket;
 use App\Traits\BaseApiResponse;
 use Illuminate\Http\JsonResponse;
@@ -15,10 +16,11 @@ class BasketController extends Controller
 
     public function index(): JsonResponse
     {
-        $baskets = Basket::query()->where('user_id', auth()->user()->id)->with('Product')->get();
-
-        return $this->success($baskets, 'success', 'Product successfully.');
+        $baskets = auth()->user()->baskets()->with('product')->get();
+    
+        return $this->success(BasketResource::collection($baskets), 'success', 'Product successfully.');
     }
+    
 
     public function add(BasketRequest $request): JsonResponse
     {
