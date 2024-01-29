@@ -17,7 +17,7 @@ class ProfileController extends Controller
     {
         return $this->success([
             'name' => auth()->user()->name,
-            'profile_url' => asset('storage/'.auth()->user()->profile_photo_path),
+            'profile_url' => secure_asset('storage/'.auth()->user()->profile_photo_path),
             'age' => auth()->user()->age ?? 0,
         ]);
     }
@@ -27,8 +27,8 @@ class ProfileController extends Controller
         $user = auth()->user();
         $user->name = $request->name;
         $user->age = $request->age;
-        if ($request->hasFile('profile_photo')) {
-            $user->profile_photo_path = $request->file('profile_photo')->store('profile-photos', 'public');
+        if ($request->hasFile('image')) {
+            $user->profile_photo_path = $request->file('image') ? storeUploadedFile($request->file('image'), 'upload') : '';
         }
         $user->save();
 
