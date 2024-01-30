@@ -15,8 +15,11 @@ class BasketResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->product->id,
+            'id' => $this->id,
+            'product_id' => $this->product->id,
             'title' => $this->product->title,
+            'category_id' => $this->product->category->id,
+            'category' => $this->product->category->name,
             'description' => $this->product->description,
             'price' => $this->product->price,
             'image' => secure_asset('storage/'.$this->product->image),
