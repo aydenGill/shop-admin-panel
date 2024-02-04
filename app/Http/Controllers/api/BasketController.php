@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Basket\BasketBuyRequest;
 use App\Http\Requests\Basket\BasketDeleteRequest;
 use App\Http\Requests\Basket\BasketRequest;
 use App\Http\Resources\Basket\BasketResource;
 use App\Models\Basket;
+use App\Models\Order;
 use App\Traits\BaseApiResponse;
 use Illuminate\Http\JsonResponse;
 
@@ -16,11 +18,13 @@ class BasketController extends Controller
 
     public function index(): JsonResponse
     {
-        $baskets = auth()->user()->baskets()->with('product')->get();
-    
+        $baskets = auth()->user()->baskets()
+            ->where('status', 'created')
+            ->with('product')->get();
+
         return $this->success(BasketResource::collection($baskets), 'success', 'Product successfully.');
     }
-    
+
 
     public function add(BasketRequest $request): JsonResponse
     {
@@ -57,5 +61,36 @@ class BasketController extends Controller
         }
 
         return $this->success(null, 'success', 'Basket item not found or you do not have permission to delete it.');
+    }
+
+    public function buy(BasketBuyRequest $request)
+    {
+        $validated = $request->validated();
+        if (auth()->user()->baskets()->where('status', 'created')->count() == 0){
+            return $this->success(null, 'Empty', 'Your shopping cart is empty');
+        } 
+        auth()->user()->baskets()->where('status', 'created')->update([
+            'status' => 'paid'
+        ]);
+
+        $method = '';
+        switch ($validated['method']) {
+            case 0:
+                $method = 'economy';
+            case 1:
+                $method = 'regular';
+            case 1:
+                $method = 'cargo';
+            case 1:
+                $method = 'express';
+        }
+
+        Order::query()->create([
+            'user_id' => auth()->user()->id,
+            'address_id' => $validated['address_id'],
+            'method' => $method
+        ]);
+
+        return $this->success(null, 'Success', 'Your purchase was successful');
     }
 }

@@ -36,7 +36,9 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
         Route::get('', [BasketController::class, 'index'])->name('api.basket');
         Route::post('add', [BasketController::class, 'add'])->name('api.basket.add');
         Route::post('delete', [BasketController::class, 'delete'])->name('api.basket.delete');
+        Route::post('buy',[BasketController::class, 'buy'])->name('api.basket.buy');
     });
+
 
     Route::get('address', [ProfileController::class, 'address'])->name('api.address');
     Route::post('address', [ProfileController::class, 'store_address'])->name('api.address.store');
