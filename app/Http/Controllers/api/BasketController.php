@@ -74,7 +74,7 @@ class BasketController extends Controller
         ]);
 
         $method = '';
-        switch ($validated['method']) {
+        switch ($validated['shipping_type']) {
             case 0:
                 $method = 'economy';
             case 1:
