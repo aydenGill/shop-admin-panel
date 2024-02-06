@@ -30,7 +30,9 @@ class BasketController extends Controller
     {
         $userId = auth()->user()->id;
 
-        $existingBasket = Basket::query()->where('user_id', $userId)
+        $existingBasket = Basket::query()
+            ->where('status', 'created')
+            ->where('user_id', $userId)
             ->where('product_id', $request['product'])
             ->first();
 
