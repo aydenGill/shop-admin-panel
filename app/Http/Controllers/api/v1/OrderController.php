@@ -15,32 +15,24 @@ class OrderController extends Controller
     public function index()
     {
         try {
-            $ordersActive = $this->getOrdersByStatus(OrderConstants::ACTIVE);
-            $ordersSuccess = $this->getOrdersByStatus(OrderConstants::SUCCESS);
-            $ordersFail = $this->getOrdersByStatus(OrderConstants::FAILED);
-
-            return $this->success([
-                'active' => $ordersActive,
-                'success' => $ordersSuccess,
-                'fail' => $ordersFail
-            ], 'Order', 'Order list completed');
+            $orders = $this->getOrdersByStatus();
+            return $this->success($orders, 'Order', 'Order list completed');
         } catch (\Exception $e) {
             Log::error('Error retrieving orders: ' . $e->getMessage());
-            return $this->error('An error occurred while fetching orders.');
+            return $this->failed(null, 'Error', 'An error occurred while fetching orders.');
         }
     }
 
-    protected function getOrdersByStatus($status)
+    protected function getOrdersByStatus()
     {
         return auth()->user()->orders()
-            ->where('status', $status)
             ->with('products.product', 'address')
             ->get()
             ->map(function ($order) {
                 return [
                     'code' => $order->code,
                     'products' => $this->mapProducts($order->products),
-                    'shipping_type' => $order->method,
+                    'shipping_type' => $this->convertShippingType($order->method),
                     'status' => OrderConstants::getStatusFromString($order->status),
                     'address' => $this->mapAddress($order->address),
                     'created_at' => $order->created_at,
@@ -66,5 +58,21 @@ class OrderController extends Controller
             "county" => $address->county,
             "state" => $address->state,
         ];
+    }
+
+    protected function convertShippingType($type)
+    {
+        switch ($type) {
+            case 'economy':
+                return 0;
+            case 'regular':
+                return 1;
+            case 'cargo':
+                return 2;
+            case 'express':
+                return 3;
+            default:
+                return 0;
+        }
     }
 }
