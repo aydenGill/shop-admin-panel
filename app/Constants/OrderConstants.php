@@ -28,4 +28,16 @@ class OrderConstants
                 return self::ACTIVE;
         }
     }
+
+    public static function getStatusFromString($status)
+    {
+        switch ($status) {
+            case self::SUCCESS:
+                return 1;
+            case self::FAILED:
+                return 2;
+            default:
+                return self::ACTIVE;
+        }
+    }
 }
