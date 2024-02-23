@@ -1,2 +1,3 @@
-cd /var/wwww/html/shop-admin-panel && git pull
-cd /var/wwww/html/shop-admin-panel && ls -al
+cd /var/www/html/shop-admin-panel/ && git pull
+cd /var/www/html/shop-admin-panel/ && php artisan optimize:clear
+cd /var/www/html/shop-admin-panel/ && ls -al
