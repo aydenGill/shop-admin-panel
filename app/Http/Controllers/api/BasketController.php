@@ -9,6 +9,7 @@ use App\Http\Requests\Basket\BasketRequest;
 use App\Http\Resources\Basket\BasketResource;
 use App\Models\Basket;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Traits\BaseApiResponse;
 use Illuminate\Http\JsonResponse;
 
@@ -68,9 +69,11 @@ class BasketController extends Controller
     public function buy(BasketBuyRequest $request)
     {
         $validated = $request->validated();
-        if (auth()->user()->baskets()->where('status', 'created')->count() == 0){
+        if (auth()->user()->baskets()->where('status', 'created')->count() == 0) {
             return $this->success(null, 'Empty', 'Your shopping cart is empty');
-        } 
+        }
+        $products = auth()->user()->baskets()->where('status', 'created')->get();
+
         auth()->user()->baskets()->where('status', 'created')->update([
             'status' => 'paid'
         ]);
@@ -87,12 +90,21 @@ class BasketController extends Controller
                 $method = 'express';
         }
 
-        Order::query()->create([
+        $order = Order::query()->create([
+            'code' => rand(),
             'user_id' => auth()->user()->id,
             'address_id' => $validated['address_id'],
             'method' => $method
         ]);
 
+        foreach($products as $product){
+            OrderProduct::query()->create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'count' => $product->count
+            ]);
+        }
+        
         return $this->success(null, 'Success', 'Your purchase was successful');
     }
 }

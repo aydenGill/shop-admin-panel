@@ -7,6 +7,7 @@ use App\Http\Controllers\api\HomeController;
 use App\Http\Controllers\api\LikeController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\ProfileController;
+use App\Http\Controllers\api\v1\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -39,6 +40,9 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
         Route::post('buy',[BasketController::class, 'buy'])->name('api.basket.buy');
     });
 
+    Route::prefix('orders')->group(function(){
+        Route::get('',[OrderController::class,'index']);
+    });
 
     Route::get('address', [ProfileController::class, 'address'])->name('api.address');
     Route::post('address', [ProfileController::class, 'store_address'])->name('api.address.store');
