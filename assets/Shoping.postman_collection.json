@@ -299,7 +299,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "1|3U9NPkkdXKhsG8NfaTelMu6tzBpLKcWVJOmZ57RN79992073"
+								"token": "3|QOv7PpKvqLOJzHMHu8uGLpz5Kgs6fQympYg140WMb610e761"
 							}
 						},
 						"method": "GET",
@@ -366,7 +366,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "1|ckDdS2eEXCo8UnOx1We2Nc4Ew4tocmEoJYH5Ikns4215469a"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -433,13 +433,13 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "1|ckDdS2eEXCo8UnOx1We2Nc4Ew4tocmEoJYH5Ikns4215469a"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/api/v1/search?min_price=10&max_price=30&categories_id=4&page=1",
+							"raw": "{{host}}:{{port}}/api/v1/search?min_price=10&max_price=30&categories_id=3,4,5&page=1&sort=asc",
 							"host": [
 								"{{host}}"
 							],
@@ -460,11 +460,16 @@
 								},
 								{
 									"key": "categories_id",
-									"value": "4"
+									"value": "3,4,5"
 								},
 								{
 									"key": "page",
 									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "asc",
+									"description": "asc , desc , hp => highest price , lowest price"
 								}
 							]
 						}
@@ -940,6 +945,30 @@
 						"url": "{{host}}:{{port}}/api/v1/basket/delete"
 					},
 					"response": []
+				},
+				{
+					"name": "Buy basket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}:{{port}}/api/v1/basket/buy"
+					},
+					"response": []
 				}
 			]
 		},
@@ -949,8 +978,292 @@
 				{
 					"name": "Get profile",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{host}}:{{port}}/api/v1/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Update profile Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "soheil udpated",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/soheil/Documents/IMG_20240106_201410_343.jpg"
+								},
+								{
+									"key": "age",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{host}}:{{port}}/api/v1/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Address Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}:{{port}}/api/v1/address"
+					},
+					"response": []
+				},
+				{
+					"name": "Add address user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\" : \"this is test address\",\n    \"city\" : \"kashan\",\n    \"county\" : \"iran\",\n    \"state\" : \"this is test state\",\n    \"zip_code\" : \"this is test state\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}:8001/api/v1/address"
+					},
+					"response": [
+						{
+							"name": "Add address user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"address\" : \"this is test address\",\n    \"city\" : \"kashan\",\n    \"county\" : \"iran\",\n    \"state\" : \"this is test state\",\n    \"zip_code\" : \"this is test state\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}:8001/api/v1/address"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8001"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Jan 2024 09:39:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"id\": 13,\n        \"address\": \"this is test address\",\n        \"city\": \"kashan\",\n        \"county\": \"iran\",\n        \"state\": \"this is test state\",\n        \"zip_code\": \"this is test state\"\n    },\n    \"status\": true,\n    \"alert\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Get Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/api/v1/product/1/comment"
+					},
+					"response": []
+				},
+				{
+					"name": "Create comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\" : 1,\n    \"parent\" : 1,\n    \"comment\" : \"tehis\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}:{{port}}/api/v1/comment"
+					},
+					"response": [
+						{
+							"name": "Create comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_id\" : 1,\n    \"parent\" : 1,\n    \"comment\" : \"tehis\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}:{{port}}/api/v1/comment"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Jan 2024 15:24:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "47"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": null,\n    \"status\": true,\n    \"alert\": {\n        \"title\": \"Comment\",\n        \"message\": \"It is registered successfully\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v1/orders?status=1",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "1"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -990,7 +1303,7 @@
 		},
 		{
 			"key": "token",
-			"value": "1|JQWtqQtH8GEmGRGKPA16l8JxLqUJShxThEamHvK0909734be",
+			"value": "2|1j6mLbMMMyGocNZa21M5ovcBMG07Zqfa1ry43MDK67912e9f",
 			"type": "string"
 		}
 	]
