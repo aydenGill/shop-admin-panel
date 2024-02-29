@@ -45,7 +45,8 @@ class OrderController extends Controller
         return $products->map(function ($product) {
             return [
                 'title' => $product?->product?->title,
-                'image' => $product?->product?->image
+                'image' => $product?->product?->image,
+                'price' => $product?->product?->price
             ];
         });
     }
