@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->string('code')->after('id')->nullable();
-            $table->enum('status',['active','created','success','failed','cancelled'])->after('code')->default('success');
+            $table->enum('status', ['active', 'created', 'success', 'failed', 'cancelled'])->after('code')->default('success');
         });
     }
 

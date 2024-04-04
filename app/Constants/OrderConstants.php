@@ -14,9 +14,6 @@ class OrderConstants
 
     public const CANCELLED = 'cancelled';
 
-
-
-
     public static function getStatusFromId($id)
     {
         switch ($id) {

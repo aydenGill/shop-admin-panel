@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Basket\BasketBuyRequest;
@@ -25,7 +25,6 @@ class BasketController extends Controller
 
         return $this->success(BasketResource::collection($baskets), 'success', 'Product successfully.');
     }
-
 
     public function add(BasketRequest $request): JsonResponse
     {
@@ -66,7 +65,7 @@ class BasketController extends Controller
         return $this->success(null, 'success', 'Basket item not found or you do not have permission to delete it.');
     }
 
-    public function buy(BasketBuyRequest $request)
+    public function buy(BasketBuyRequest $request): JsonResponse
     {
         $validated = $request->validated();
         if (auth()->user()->baskets()->where('status', 'created')->count() == 0) {
@@ -75,7 +74,7 @@ class BasketController extends Controller
         $products = auth()->user()->baskets()->where('status', 'created')->get();
 
         auth()->user()->baskets()->where('status', 'created')->update([
-            'status' => 'paid'
+            'status' => 'paid',
         ]);
 
         $method = '';
@@ -94,17 +93,17 @@ class BasketController extends Controller
             'code' => rand(),
             'user_id' => auth()->user()->id,
             'address_id' => $validated['address_id'],
-            'method' => $method
+            'method' => $method,
         ]);
 
-        foreach($products as $product){
+        foreach ($products as $product) {
             OrderProduct::query()->create([
                 'order_id' => $order->id,
                 'product_id' => $product->id,
-                'count' => $product->count
+                'count' => $product->count,
             ]);
         }
-        
+
         return $this->success(null, 'Success', 'Your purchase was successful');
     }
 }

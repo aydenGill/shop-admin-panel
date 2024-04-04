@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class BasketBuyRequest extends FormRequest
 {
     use FailValidation;
+
     public function authorize(): bool
     {
         return true;

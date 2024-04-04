@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\api\AuthController;
-use App\Http\Controllers\api\BasketController;
-use App\Http\Controllers\api\CommentController;
-use App\Http\Controllers\api\HomeController;
-use App\Http\Controllers\api\LikeController;
-use App\Http\Controllers\api\ProductController;
-use App\Http\Controllers\api\ProfileController;
+use App\Http\Controllers\api\v1\AuthController;
+use App\Http\Controllers\api\v1\BasketController;
+use App\Http\Controllers\api\v1\CommentController;
+use App\Http\Controllers\api\v1\HomeController;
+use App\Http\Controllers\api\v1\LikeController;
 use App\Http\Controllers\api\v1\OrderController;
+use App\Http\Controllers\api\v1\ProductController;
+use App\Http\Controllers\api\v1\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -37,11 +37,11 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
         Route::get('', [BasketController::class, 'index'])->name('api.basket');
         Route::post('add', [BasketController::class, 'add'])->name('api.basket.add');
         Route::post('delete', [BasketController::class, 'delete'])->name('api.basket.delete');
-        Route::post('buy',[BasketController::class, 'buy'])->name('api.basket.buy');
+        Route::post('buy', [BasketController::class, 'buy'])->name('api.basket.buy');
     });
 
-    Route::prefix('orders')->group(function(){
-        Route::get('',[OrderController::class,'index']);
+    Route::prefix('orders')->group(function () {
+        Route::get('', [OrderController::class, 'index']);
     });
 
     Route::get('address', [ProfileController::class, 'address'])->name('api.address');

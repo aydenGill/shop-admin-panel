@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('address_id');
-            $table->enum('method',['economy','regular','cargo','express']);
+            $table->enum('method', ['economy', 'regular', 'cargo', 'express']);
             $table->timestamps();
         });
     }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\api\v1;
 use App\Constants\OrderConstants;
 use App\Http\Controllers\Controller;
 use App\Traits\BaseApiResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
@@ -16,9 +15,11 @@ class OrderController extends Controller
     {
         try {
             $orders = $this->getOrdersByStatus();
+
             return $this->success($orders, 'Order', 'Order list completed');
         } catch (\Exception $e) {
-            Log::error('Error retrieving orders: ' . $e->getMessage());
+            Log::error('Error retrieving orders: '.$e->getMessage());
+
             return $this->failed(null, 'Error', 'An error occurred while fetching orders.');
         }
     }
@@ -46,7 +47,7 @@ class OrderController extends Controller
             return [
                 'title' => $product?->product?->title,
                 'image' => $product?->product?->image,
-                'price' => $product?->product?->price
+                'price' => $product?->product?->price,
             ];
         });
     }
@@ -54,10 +55,10 @@ class OrderController extends Controller
     protected function mapAddress($address)
     {
         return [
-            "address" => $address->address,
-            "city" => $address->city,
-            "county" => $address->county,
-            "state" => $address->state,
+            'address' => $address->address,
+            'city' => $address->city,
+            'county' => $address->county,
+            'state' => $address->state,
         ];
     }
 

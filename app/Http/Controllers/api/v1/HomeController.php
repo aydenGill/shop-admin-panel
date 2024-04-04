@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Search\SearchRequest;
@@ -35,6 +35,7 @@ class HomeController extends Controller
 
             $categories = Category::query()->select('id', 'name', 'parent', 'icon')->get();
             $address = auth()->user()->address()->first() ? new AddressResource(auth()->user()->address()->first()) : null;
+
             return $this->success([
                 'banners' => $banners,
                 'categories' => $categories,

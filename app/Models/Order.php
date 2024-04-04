@@ -13,11 +13,11 @@ class Order extends Model
         'code',
         'user_id',
         'address_id',
-        'status'
+        'status',
     ];
 
-
-    public function products(){
+    public function products()
+    {
         return $this->hasMany(OrderProduct::class);
     }
 

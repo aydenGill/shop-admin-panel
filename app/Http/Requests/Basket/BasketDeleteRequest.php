@@ -7,7 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class BasketDeleteRequest extends FormRequest
 {
-
     use FailValidation;
 
     public function authorize(): bool
