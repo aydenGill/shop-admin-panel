@@ -47,6 +47,11 @@ class BasketController extends Controller
             ]);
         }
 
+        auth()->user()->notifications()->create([
+            'title' => 'Product added to the basket',
+            'description' => 'Product added to the basket successfully',
+        ]);
+        
         return $this->success(null, 'success', 'Product added to the basket successfully.');
     }
 

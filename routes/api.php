@@ -5,6 +5,7 @@ use App\Http\Controllers\api\v1\BasketController;
 use App\Http\Controllers\api\v1\CommentController;
 use App\Http\Controllers\api\v1\HomeController;
 use App\Http\Controllers\api\v1\LikeController;
+use App\Http\Controllers\api\v1\NotificationController;
 use App\Http\Controllers\api\v1\OrderController;
 use App\Http\Controllers\api\v1\ProductController;
 use App\Http\Controllers\api\v1\ProfileController;
@@ -46,4 +47,7 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
 
     Route::get('address', [ProfileController::class, 'address'])->name('api.address');
     Route::post('address', [ProfileController::class, 'store_address'])->name('api.address.store');
+
+    Route::get('notifications', [NotificationController::class, 'index'])->name('api.notifications');
+    Route::get('notifications/unread', [NotificationController::class, 'unread'])->name('api.notifications');
 });

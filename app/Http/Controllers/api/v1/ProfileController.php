@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\UpdateAddressRequest;
 use App\Http\Requests\Profile\UpdateProfileRequest;
 use App\Http\Resources\Profile\AddressResource;
+use App\Notifications\ProfileUpdated;
 use App\Traits\BaseApiResponse;
 use Illuminate\Http\JsonResponse;
 
@@ -32,6 +33,12 @@ class ProfileController extends Controller
         }
         $user->save();
 
+        // Set notification 
+        $user->notifications()->create([
+            'title' => 'Profile Updated',
+            'description' => 'Your profile has been updated successfully',
+        ]);
+        
         return $this->success([
             'name' => $user->name,
             'profile_url' => asset('storage/'.$user->profile_photo_path),

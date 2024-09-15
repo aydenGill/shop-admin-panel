@@ -22,7 +22,6 @@ class CommentController extends Controller
     public function store(StoreComment $request): JsonResponse
     {
         auth()->user()->comments()->create($request->validated());
-
         return $this->success(null, 'Comment', 'It is registered successfully');
     }
 
